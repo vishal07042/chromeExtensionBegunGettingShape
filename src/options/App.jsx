@@ -261,32 +261,86 @@ export function App() {
 				</form>
 			</div>
 
-			<div>
-				<h2>contibuters </h2>
-				<h2>
-					inspired by{" "}
-					<a href='https://chromewebstore.google.com/detail/dsa-data-structures-algor/jempflgldkcchddagplfblmbbkcfhobi?hl=en'>
+			<div className=' m-4'>
+				<h2> special thanks to </h2>
+				<h2 className='flex text-2xl gap-4'>
+					Inspired by{" "}
+					<a
+						className='text-blue-400'
+						href='https://chromewebstore.google.com/detail/dsa-data-structures-algor/jempflgldkcchddagplfblmbbkcfhobi?hl=en'
+					>
 						extension
 					</a>{" "}
 				</h2>
-				<h2>
-					Thanks lydia hadlie for js quesions{" "}
-					<a href='https://github.com/lydiahallie/javascript-questions'>
+				<h2 className='flex text-2xl gap-4'>
+					Inspired by{" "}
+					<a className='text-blue-400' href=''>
+						{" "}
+						André Ruffert.
+					</a>{" "}
+					and his project{" "}
+					<a
+						className='text-blue-400'
+						href='https://javascript-questions.netlify.app/'
+					>
+						{" "}
+						js quiz
+					</a>
+				</h2>
+				<h2 className='flex text-2xl gap-4'>
+					Thanks{" "}
+					<a
+						className='text-blue-400'
+						href='https://github.com/lydiahallie'
+					>
+						lydia hadllie
+					</a>{" "}
+					for js quesions{" "}
+					<a
+						className='text-blue-400'
+						href='https://github.com/lydiahallie/javascript-questions'
+					>
 						javascript-challenge-questions
 					</a>
 				</h2>
-				<h2>
+				<h2 className='flex text-2xl gap-4'>
 					Thanks faisal shohag for leetcode api{" "}
-					<a href='https://leetcode-api-faisalshohag.vercel.app/'>
+					<a
+						className='text-blue-400'
+						href='https://leetcode-api-faisalshohag.vercel.app/'
+					>
 						leetcode-api
 					</a>
 				</h2>
-				<h2>
-					developed by vishal
-					<a href=''>
-						github 
+				<h2 className='flex text-2xl gap-4'>
+					Thanks to love babbar for 450 ques{" "}
+					<a
+						className='text-blue-400'
+						href='https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view'
+					>
+						sheet link
+					</a>
+					<a
+						className='text-blue-400'
+						href='https://www.youtube.com/@LoveBabbar'
+					>
+						yt channel
 					</a>
 				</h2>
+				<h2></h2>
+				<h4 className='flex text-2xl gap-4'>
+					Developed by{" "}
+					<a  className="text-blue-400" href='https://github.com/vishal07042/'>Vishal </a>
+					give this project a
+					<a
+						className='text-blue-400'
+						href='https://github.com/vishal07042/chromeExtensionBegunGettingShape'
+					>
+						star
+					</a>
+
+				</h4>
+			
 			</div>
 		</div>
 	);

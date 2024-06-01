@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
 	"version": "1.0",
-	"name": "dsa  Extension option and popup ",
-	"description": "A demo popup experience",
+	"name": "Dsa Extension and website blocker",
+	"description": "NO more tutorial hell",
 	"action": {
 		"default_popup": "index.html"
 
