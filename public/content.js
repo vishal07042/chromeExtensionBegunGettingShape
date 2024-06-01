@@ -26,8 +26,16 @@ chrome.runtime.onMessage.addListener(async function (
 			location.hostname != "takeuforward.org" &&
 			location.hostname != "www.geeksforgeeks.org"
 		) {
-			sendResponse({ message: "close tab" });
-			console.log("closing tab msg send");
+
+			//  window.document.body.innerHTML = <h1>you havent solved leetcode problems ${totalSolved} </h1>;
+			    window.document.body.innerHTML = `<h1>You haven't solved enough LeetCode problems to access this site:  you have solved ${totalSolved}  que and  the target is  to complete ${startingPoint}  que the target as things will pile up you can whitelist this site if urgent</h1>`;
+
+			 setTimeout(() => {
+				sendResponse({ message: "close tab" });
+				console.log("closing tab msg send");
+			 }, 5000)
+
+			//  sendResponse({ message: "close tab" });
 		}
 
 		console.log("hui exexute");
@@ -101,7 +109,7 @@ function checkAndDelete() {
 			messageNode.style.zIndex = "10000";
 			document.body.appendChild(messageNode);
 
-			// Set up the countdown
+			// Set up the countdow
 			let countdown = 5;
 			const intervalId = setInterval(() => {
 				countdown--;

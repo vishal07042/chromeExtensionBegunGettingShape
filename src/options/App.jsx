@@ -111,7 +111,9 @@ export function App() {
 				</h1>
 			</form>
 
-			<h3 className='text-2xl font-bold m-5'>specify the website if more</h3>
+			<h3 className='text-2xl font-bold m-5'>
+				specify the website if more
+			</h3>
 
 			<form action=''>
 				{arrofWebsite.map((value, index, array) => {
@@ -123,7 +125,6 @@ export function App() {
 								type='radio'
 								id={value}
 								value={value}
-								
 							/>{" "}
 							<span className='text-2xl font-bold'>{value}</span>
 						</div>
@@ -258,6 +259,34 @@ export function App() {
 						{password ? "done" : "submit"}
 					</button>
 				</form>
+			</div>
+
+			<div>
+				<h2>contibuters </h2>
+				<h2>
+					inspired by{" "}
+					<a href='https://chromewebstore.google.com/detail/dsa-data-structures-algor/jempflgldkcchddagplfblmbbkcfhobi?hl=en'>
+						extension
+					</a>{" "}
+				</h2>
+				<h2>
+					Thanks lydia hadlie for js quesions{" "}
+					<a href='https://github.com/lydiahallie/javascript-questions'>
+						javascript-challenge-questions
+					</a>
+				</h2>
+				<h2>
+					Thanks faisal shohag for leetcode api{" "}
+					<a href='https://leetcode-api-faisalshohag.vercel.app/'>
+						leetcode-api
+					</a>
+				</h2>
+				<h2>
+					developed by vishal
+					<a href=''>
+						github 
+					</a>
+				</h2>
 			</div>
 		</div>
 	);

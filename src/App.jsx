@@ -8,6 +8,9 @@ export function App() {
 	const [btn1, setBtn1] = useState(false);
 	const [btn2, setBtn2] = useState(false);
 	const [bsites, setbsites] = useState([]);
+	const [leetcodeusername, setleetcodeUsername] = useState("");
+
+	const [issubmited, setissubmited] = useState(false);
 
 	useEffect(() => {
 		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -112,13 +115,16 @@ export function App() {
 	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	return (
 		<>
-			<h1>pop up</h1>
+			<h1 className='  p-2 rounded-md'>Pop up page</h1>
 			<form
 				id='form'
 				onSubmit={(e) => {
 					e.preventDefault();
 					let startingValueadd = e.target.selectQuestion.value;
 					let username = e.target.username.value;
+					setleetcodeUsername(username);
+					chrome.storage.sync.set({ leetcodeusername: username });
+					setissubmited(true);
 					chrome.runtime.sendMessage(
 						{
 							startingValueadd: startingValueadd,
@@ -135,6 +141,7 @@ export function App() {
 					<label for='questions'>your leetcode username</label>
 				</h1>
 				<input
+					className='m-2 text-xl p-2 rounded-md'
 					type='text'
 					name='username'
 					id='username'
@@ -142,7 +149,7 @@ export function App() {
 				/>
 				<h1>
 					{" "}
-					<label for='questions'>
+					<label for='questions' className="text-2xl text-green-900">
 						select no. of que you wanna to everday
 					</label>
 				</h1>
@@ -151,20 +158,23 @@ export function App() {
 					id='selectQuestion'
 					type='number'
 					required
+					className=' font-bold bg-black text-green-500 p-2 mx-10
+							text-2xl rounded-md content-center'
 				>
 					{arr.map((i) => (
-						<option
-							className='font-bold bg-black text-green-500 '
-							key={i}
-							value={i}
-						>
+						<option className='' key={i} value={i}>
 							<p>{i}</p>
 						</option>
 					))}
 				</select>
 				<br />
 				<br />
-				<button type='submit'>submit</button>
+				<button
+					type='submit'
+					className='bg-red-500 text-white p-2 rounded-md text-4xl mx-4'
+				>
+					{issubmited ? "submited" : "submit"}
+				</button>
 			</form>
 
 			<div>

@@ -1,3 +1,4 @@
+
 // newtab.js
 chrome.runtime.sendMessage({ message: "getRandomQuestion" }, (response) => {
 	console.log(response[2].answer[0]);
@@ -92,7 +93,7 @@ chrome.runtime.sendMessage({ message: "getRandomQuestion" }, (response) => {
 		).innerHTML = `<p>${response[2].title} <span><button class="answer" style="float:right" > Answer</button> &nbsp;  &nbsp; <button  class="show" style="float:right; margin-right:6px"> show options</button>  </span></p>`;
 		document.getElementById(
 			"input3"
-		).innerHTML = `<pre><code class="language-javascript  ">${response[2].code}</code></pre>`;
+		).innerHTML = `<pre><code class="language-javascript">${response[2].code}</code></pre>`;
 
 		function addShowEventListeners() {
 			const show = document.querySelector(".show");

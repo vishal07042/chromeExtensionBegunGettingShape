@@ -7122,7 +7122,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 
-
+// upar wala sarra newtabPagekeliye hai
 
 // let startingPoint = 2;  //--	 chala gaya content js mein
 
@@ -7192,8 +7192,11 @@ getFirstvalue();
 
 async function getleetcode() {
 	try {
+		await chrome.storage.sync.get(["leetcodeusername"]).then((result) => {
+			console.log(" leetcode username is " + result.leetcodeusername);
+		});
 		const apiEndpoint =
-			"https://leetcode-api-faisalshohag.vercel.app/professionalprovishal";
+			`https://leetcode-api-faisalshohag.vercel.app/${result.leetcodeusername || "professionalprovishal"}`;
 		const apiResponse = await fetch(apiEndpoint);
 		const { totalSolved } = await apiResponse.json();
 
@@ -7217,7 +7220,7 @@ chrome.tabs.onUpdated.addListener(function (activeInfo) {
 
 			console.log(gettingStarted);
 
-			let activeTab = tabs[0];
+			let activeTab = await tabs[0];
 			await chrome.tabs.sendMessage(
 				activeTab.id,
 				{ message: totalSolved, message2: gettingStarted },
@@ -7228,6 +7231,11 @@ chrome.tabs.onUpdated.addListener(function (activeInfo) {
 						chrome.tabs.query(
 							{ active: true, currentWindow: true },
 							(tabs) => {
+
+								 setTimeout(() => {
+										chrome.tabs.remove(tabs[0].id);
+									}, 5000);
+
 								chrome.tabs.remove(tabs[0].id);
 							}
 						);
@@ -7243,6 +7251,8 @@ chrome.tabs.onUpdated.addListener(function (activeInfo) {
 
 
 console.log("hello from background.js");
+
+//partition
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (message.type === "getItems") {
