@@ -1,5 +1,17 @@
 console.log(" hello from content.js");
 
+function getDayOfYear() {
+    const now = new Date(); // Get the current date
+    const start = new Date(now.getFullYear(), 0, 0); // Get the first day of the year
+    const diff = now - start; // Calculate the difference in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24; // One day in milliseconds
+    const dayOfYear = Math.floor(diff / oneDay); // Calculate the day of the year
+    return dayOfYear;
+}
+
+console.log(getDayOfYear()); // Outputs the current day of the year
+
+
 // Listen for messages from the background script
 chrome.runtime.onMessage.addListener(async function (
 	request,
@@ -28,7 +40,7 @@ chrome.runtime.onMessage.addListener(async function (
 		) {
 
 			//  window.document.body.innerHTML = <h1>you havent solved leetcode problems ${totalSolved} </h1>;
-			    window.document.body.innerHTML = `<h1>You haven't solved enough LeetCode problems to access this site:  you have solved ${totalSolved}  que and  the target is  to complete ${startingPoint}  que the target as things will pile up you can whitelist this site if urgent</h1>`;
+			    window.document.body.innerHTML = `<h1>You haven't solved enough LeetCode problems to access this site:  you have solved ${totalSolved - getDayOfYear()}  que and  the target is  to complete ${startingPoint - getDayOfYear()}  que the target as things will pile up you can whitelist this site if urgent</h1>`;
 
 			 setTimeout(() => {
 				sendResponse({ message: "close tab" });

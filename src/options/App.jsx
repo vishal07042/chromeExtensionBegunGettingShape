@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 export function App() {
-
+        const [day, setDay] = useState(moment().dayOfYear());
 
 		const [items, setItems] = useState([]);
 		const [websites, setWebsites] = useState([]);
@@ -11,6 +12,14 @@ export function App() {
 
 		const [statetoShowPassword, setStatetoShowPassword] =
 			useState(undefined);
+
+
+			useEffect(() => {
+				chrome.storage.sync.set({ day: day }, () => {
+					console.log("day set in storage");
+				});
+				setDay(moment().dayOfYear());
+			}, [day]);
 
 		useEffect(() => {
 			// Fetch items from storage when the component mounts
