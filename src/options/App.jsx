@@ -1,7 +1,45 @@
 import { useEffect, useState } from "react";
 import moment from "moment";
+ 
+import Faq from "react-faq-component";
 
 export function App() {
+
+
+
+	const data = {
+		title: "FAQ and help on making this is extension permanent ",
+		rows: [
+			{
+				title: "how to make this extension permanent",
+				content:' create a something.reg file insert  <br> Windows Registry Editor Version 5.00 <br>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist]<br>"177"="gllpaipmnbjajkjhkchgdjfmcllomfhi;https://edge.microsoft.com/extensionwebstorebase/v1/crx" and doublick to install it'
+					
+			},
+			{
+				title: "What is this extension",
+				content:
+					"This is a chrome extension which will help you to block websites and urls and also help you to block keywords",
+			},
+		],
+	};
+
+	const styles = {
+		// bgColor: 'white',
+		titleTextColor: "blue",
+		rowTitleColor: "blue",
+		// rowContentColor: 'grey',
+		// arrowColor: "red",
+		margin:"10px",
+		padding:"10px"
+	};
+
+
+	const config = {
+		// animate: true,
+		// arrowIcon: "V",
+		// tabFocus: true
+	};
+
         const [day, setDay] = useState(moment().dayOfYear());
 
 		const [items, setItems] = useState([]);
@@ -270,6 +308,12 @@ export function App() {
 				</form>
 			</div>
 
+			<div className='faq m-4 '>
+				
+					<Faq data={data} styles={styles} config={config}  />
+				
+			</div>
+
 			<div className=' m-4'>
 				<h2> special thanks to </h2>
 				<h2 className='flex text-2xl gap-4'>
@@ -339,7 +383,12 @@ export function App() {
 				<h2></h2>
 				<h4 className='flex text-2xl gap-4'>
 					Developed by{" "}
-					<a  className="text-blue-400" href='https://github.com/vishal07042/'>Vishal </a>
+					<a
+						className='text-blue-400'
+						href='https://github.com/vishal07042/'
+					>
+						Vishal{" "}
+					</a>
 					give this project a
 					<a
 						className='text-blue-400'
@@ -347,9 +396,7 @@ export function App() {
 					>
 						star
 					</a>
-
 				</h4>
-			
 			</div>
 		</div>
 	);
