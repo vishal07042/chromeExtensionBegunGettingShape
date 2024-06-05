@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"version": "1.0",
+	"name": "Dsa Extension and website blocker",
+	"description": "NO more tutorial hell",
+	"action": {
+		"default_popup": "index.html"
+
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"chrome_url_overrides": {
+		"newtab": "newtab.html"
+	},
+	"permissions": ["storage", "activeTab", "tabs", "scripting"],
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": true
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	]
+}
