@@ -1,14 +1,3 @@
- function getDayOfYear() {
-    const now = new Date(); // Get the current date
-    const start = new Date(now.getFullYear(), 0, 0); // Get the first day of the year
-    const diff = now - start; // Calculate the difference in milliseconds
-    const oneDay = 1000 * 60 * 60 * 24; // One day in milliseconds
-    const dayOfYear = Math.floor(diff / oneDay); // Calculate the day of the year
-    return dayOfYear;
-}
-
-console.log(getDayOfYear());  // Outputs the current day of the year
-
 const questions = [
 	{
 		question:
@@ -7188,13 +7177,8 @@ chrome.runtime.onMessage.addListener(async function (
 	}
 });
 
-      
-
-
 async function getFirstvalue() {
-
-	    
-	let vvalue = 0 + getDayOfYear();
+	let vvalue = 0;
 
 	await chrome.storage.local.get(["startingPoint"]).then((result) => {
 		console.log(" starting point ki value is " + result.startingPoint);
@@ -7207,21 +7191,18 @@ async function getFirstvalue() {
 getFirstvalue();
 
 async function getleetcode() {
-	 
 	try {
 		await chrome.storage.sync.get(["leetcodeusername"]).then((result) => {
 			console.log(" leetcode username is " + result.leetcodeusername);
 		});
 		const apiEndpoint =
-			`https://leetcode-api-faisalshohag.vercel.app/${result.leetcodeusername}` 
-			
-			// "professionalprovishal"}
+			`https://leetcode-api-faisalshohag.vercel.app/${result.leetcodeusername || "professionalprovishal"}`;
 		const apiResponse = await fetch(apiEndpoint);
 		const { totalSolved } = await apiResponse.json();
 
 		console.log(totalSolved, "got total from api");
-           
-		return totalSolved  + getDayOfYear();
+
+		return totalSolved;
 	} catch (error) {
 		console.log(error);
 		return null;

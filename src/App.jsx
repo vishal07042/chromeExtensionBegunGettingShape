@@ -1,8 +1,6 @@
-import moment from "moment";
 import React, { useEffect, useState } from "react";
 
 export function App() {
-	console.log("moment().dayOfYear()", moment().dayOfYear());
 	const [hostname, setHostname] = useState("");
 	const [href, setHref] = useState("");
 	const [listOfBlockedWebsites, setListOfBlockedWebsites] = useState([]);
@@ -147,12 +145,11 @@ export function App() {
 					type='text'
 					name='username'
 					id='username'
-					placeholder='professionalprovishal'
-					defaultValue='professionalprovishal'
+					placeholder='provish'
 				/>
 				<h1>
 					{" "}
-					<label for='questions' className='text-2xl text-green-900'>
+					<label for='questions' className="text-2xl text-green-900">
 						select no. of que you wanna to everday
 					</label>
 				</h1>
