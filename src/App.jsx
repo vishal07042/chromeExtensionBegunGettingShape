@@ -10,7 +10,38 @@ export function App() {
 	const [bsites, setbsites] = useState([]);
 	const [leetcodeusername, setleetcodeUsername] = useState("");
 
+	const [btndisablekarukinikaru,setBtndisablekarukinikaru] = useState(false)
+
 	const [issubmited, setissubmited] = useState(false);
+
+
+	useEffect(()=>{
+		async function printusername() {
+			const res = await getuusername();
+			console.log(res);
+			if(res){
+				setBtndisablekarukinikaru(true)
+				console.log("kardiya disa")
+			}
+		}
+		printusername();
+	},[])
+
+	async function getuusername() {
+		const res = await chrome.storage.sync.get(
+			["leetcodeusername"],
+			 (result) => {
+				setleetcodeUsername(result.leetcodeusername);
+				console.log("ho gaya username ka kkam");
+
+				return  result.leetcodeusername;
+			}
+		);
+
+		return  res;
+	}
+
+	
 
 	useEffect(() => {
 		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -145,7 +176,6 @@ export function App() {
 					type='text'
 					name='username'
 					id='username'
-					
 					placeholder='professionalprovishal'
 					defaultValue='professionalprovishal'
 				/>
@@ -173,7 +203,8 @@ export function App() {
 				<br />
 				<button
 					type='submit'
-					className='bg-red-500 text-white p-2 rounded-md text-4xl mx-4'
+					className={`bg-red-500 text-white p-2 rounded-md text-4xl mx-4  }
+				
 				>
 					{issubmited ? "submited" : "submit"}
 				</button>

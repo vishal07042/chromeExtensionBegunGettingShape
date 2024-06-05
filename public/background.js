@@ -7193,12 +7193,12 @@ chrome.runtime.onMessage.addListener(async function (
 });
 
 async function getFirstvalue() {
-	let vvalue = 0+ getDayOfYear();
+	let vvalue = 0 + getDayOfYear();
 
 	await chrome.storage.local.get(["startingPoint"]).then((result) => {
 		console.log(" starting point ki value is " + result.startingPoint);
 
-		vvalue = result.startingPoint;
+			vvalue = result.startingPoint ;
 	});
 
 	return vvalue;
@@ -7207,11 +7207,28 @@ getFirstvalue();
 
 async function getleetcode() {
 	try {
-		await chrome.storage.sync.get(["leetcodeusername"]).then((result) => {
+		 const  res = await chrome.storage.sync.get(["leetcodeusername"]).then((result) => {
 			console.log(" leetcode username is " + result.leetcodeusername);
+
+			return result.leetcodeusername
 		});
-		const apiEndpoint =
-			`https://leetcode-api-faisalshohag.vercel.app/professionalprovishal`;
+
+
+		console.log(res)
+
+		
+				const apiEndpoint =`https://leetcode-api-faisalshohag.vercel.app/${res}`;
+		
+
+
+		// if(result.leetcodeusername){
+
+		// 	console.log(result.leetcodeusername)
+
+			
+		// }
+		// const apiEndpoint =
+		// 	`https://leetcode-api-faisalshohag.vercel.app/professionalprovishal`;
 		const apiResponse = await fetch(apiEndpoint);
 		const { totalSolved } = await apiResponse.json();
 
