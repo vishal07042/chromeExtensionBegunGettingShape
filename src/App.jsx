@@ -11,52 +11,8 @@ export function App() {
 	const [btn2, setBtn2] = useState(false);
 	const [bsites, setbsites] = useState([]);
 	const [leetcodeusername, setleetcodeUsername] = useState("");
-      const [isSubmitted, setIsSubmitted] = useState(false);
 
-	  const [ count , setCount] = useState(0)
-	  const [ vcount,setVcount] = useState();
-
-
-	  useEffect(() => {
-		chrome.storage.local.set({ count: count });
-	}, []);
-
-	useEffect(() => {
-		chrome.storage.local.get(["count"], (result) => {
-			setCount(result.count || 0);
-		});
-	}, []);
-
-		
-	
-
-	
-
-	
-
-
-useEffect(() => {
-	// Check if the form was submitted previously using chrome.storage.sync
-	chrome.storage.sync.get(["isFormSubmitted", "savedUsername"], (result) => {
-		if (result.isFormSubmitted) {
-			setFormSubmitted(true);
-			setStoredUsername(result.savedUsername);
-		}
-	});
-}, []);
-
-
-
-	useEffect(() => {
-		// Check if the form was submitted previously using chrome.storage.sync
-		chrome.storage.sync.get(["condit", "leetcodeusername"], (result) => {
-			if (result.condit) {
-				setIsSubmitted(true);
-				
-			}
-		});
-	}, []);
-
+	const [issubmited, setissubmited] = useState(false);
 
 	useEffect(() => {
 		chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -161,31 +117,16 @@ useEffect(() => {
 	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	return (
 		<>
-
-		
 			<h1 className='  p-2 rounded-md'>Pop up page</h1>
-
-
-			
-
-		
 			<form
 				id='form'
 				onSubmit={(e) => {
 					e.preventDefault();
-					setCount(count+1)
-
-					 chrome.storage.sync.set({ isFormSubmitted: true });
-					chrome.storage.sync.set({condit:true})
 					let startingValueadd = e.target.selectQuestion.value;
 					let username = e.target.username.value;
 					setleetcodeUsername(username);
 					chrome.storage.sync.set({ leetcodeusername: username });
 					setissubmited(true);
-
-					 chrome.storage.sync.set({ savedUsername: username });
-						setFormSubmitted(true);
-
 					chrome.runtime.sendMessage(
 						{
 							startingValueadd: startingValueadd,
@@ -235,7 +176,7 @@ useEffect(() => {
 					type='submit'
 					className='bg-red-500 text-white p-2 rounded-md text-4xl mx-4'
 				>
-					{isSubmitted ? "submited" : "submit"}
+					{issubmited ? "submited" : "submit"}
 				</button>
 			</form>
 
