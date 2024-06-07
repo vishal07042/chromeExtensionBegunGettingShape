@@ -7323,18 +7323,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 
 
-let lifeline;
-// Disconnect and reconnect
-function keepAliveForced() {
-	lifeline?.disconnect();
-	lifeline = null;
-	keepAlive();
-}
-async function keepAlive() {
-	if (lifeline) {
-		return;
-	}
-}
+// let lifeline;
+// // Disconnect and reconnect
+// function keepAliveForced() {
+// 	lifeline?.disconnect();
+// 	lifeline = null;
+// 	keepAlive();
+// }
+// async function keepAlive() {
+// 	if (lifeline) {
+// 		return;
+// 	}
+// }
 
 
 
