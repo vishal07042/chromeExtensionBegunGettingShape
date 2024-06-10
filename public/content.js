@@ -68,7 +68,7 @@ chrome.runtime.onMessage.addListener(async function (
 			let s = window.location.href;
 			let l = s?.split("=")[2]?.split("&")[0];
 
-			if (l == "PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA") {
+			if (l == "PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA" || window.location.href == "https://www.youtube.com/playlist?list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA") {
 				console.log(l);
 				console.log("gaya andhar yt pe");
 				return;
