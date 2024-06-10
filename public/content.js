@@ -77,7 +77,7 @@ chrome.runtime.onMessage.addListener(async function (
 					totalSolved - getDayOfYear()
 				}  que and  the target is  to complete ${
 					startingPoint - getDayOfYear()
-				}  que the target as things will pile up you can whitelist this site if urgent</h1>`;
+				}  que , complete the target as things will pile up you can whitelist this site if urgent or use a terminal based browser</h1>`;
 			}
 
 			
