@@ -24,10 +24,11 @@ chrome.runtime.onMessage.addListener(async function (
 ) {
 
 
+let b = getDayOfYear();
+let nextDay =  b + 1;
+	if ( b  == nextDay){
 
-	if (!getDayOfYear()) {
-
-		
+		nextDay++;
 
 
 			console.log("Total problems solved: " + request.message);
