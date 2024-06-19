@@ -22,6 +22,78 @@ chrome.runtime.onMessage.addListener(async function (
 	sender,
 	sendResponse
 ) {
+
+
+
+	if (!getDayOfYear()) {
+
+		
+
+
+			console.log("Total problems solved: " + request.message);
+			console.log("Starting point is set to: " + request.message2);
+			console.log("hui execute");
+
+			let totalSolved = request.message;
+
+			let startingPoint = await request.message2;
+			console.log("hui execute");
+
+			if (
+				totalSolved < startingPoint &&
+				location.hostname != "leetcode.com" &&
+				location.hostname != "chatgpt.com" &&
+				location.hostname != "www.codehelp.in" &&
+				location.hostname != "learn.codehelp.in" &&
+				location.hostname != "www.google.com" &&
+				location.hostname != "takeuforward.org" &&
+				location.hostname != "www.geeksforgeeks.org" &&
+				location.hostname != "www.youtube.com"
+			) {
+				//  window.document.body.innerHTML = <h1>you havent solved leetcode problems ${totalSolved} </h1>;
+
+				window.document.body.innerHTML = `<h1>You haven't solved enough LeetCode problems to access this site:  you have solved ${
+					totalSolved - getDayOfYear()
+				}  que and  the target is  to complete ${
+					startingPoint - getDayOfYear()
+				}  que the target as things will pile up you can whitelist this site if urgent  use a terminal based browser</h1>`;
+
+				setTimeout(() => {
+					sendResponse({ message: "close tab" });
+					console.log("closing tab msg send");
+				}, 5000);
+
+				//  sendResponse({ message: "close tab" });
+			} else if (
+				totalSolved < startingPoint &&
+				location.hostname == "www.youtube.com"
+			) {
+				let s = window.location.href;
+				let l = s?.split("=")[2]?.split("&")[0];
+
+				if (
+					l == "PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA" ||
+					window.location.href ==
+						"https://www.youtube.com/playlist?list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA"
+				) {
+					console.log(l);
+					console.log("gaya andhar yt pe");
+					return;
+				} else {
+					window.document.body.innerHTML = `<h1>You haven't solved enough LeetCode problems to access this site:  you have solved ${
+						totalSolved - getDayOfYear()
+					}  que and  the target is  to complete ${
+						startingPoint - getDayOfYear()
+					}  que , complete the target as things will pile up you can whitelist this site if urgent or use a terminal based browser</h1>`;
+				}
+			}
+		
+	}
+
+
+
+
+
 	if (request.message) {
 		console.log("Total problems solved: " + request.message);
 		console.log("Starting point is set to: " + request.message2);
