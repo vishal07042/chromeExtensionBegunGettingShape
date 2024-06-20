@@ -182,14 +182,19 @@ export function App() {
 
 							console.log("gb ki value", gb);
 
-							let startingValueadd =
-								e.target.selectQuestion.value;
+							let startingValueadd =  e.target.selectQuestion.value;
 							let username = e.target.username.value;
 							setleetcodeUsername(username);
 							chrome.storage.sync.set({
 								leetcodeusername: username,
 							});
 							setissubmited(true);
+							chrome.storage.sync.set(
+								{ startingValueadd:Number(startingValueadd) },
+								function () {
+									console.log("startingValueadd set");
+								}
+							);
 							chrome.runtime.sendMessage(
 								{
 									startingValueadd: startingValueadd,

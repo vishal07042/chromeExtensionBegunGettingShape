@@ -28,17 +28,32 @@ let b = getDayOfYear();
 let nextDay =  b + 1;
 	if ( b  == nextDay){
 
+
+		async function getStartingValueadd() {
+			return new Promise((resolve, reject) => {
+				chrome.storage.sync.get(["startingValueadd"], (result) => {
+					if (chrome.runtime.lastError) {
+						reject(chrome.runtime.lastError);
+					} else {
+						resolve(Number(result.startingValueadd));
+					}
+				});
+			});
+		}
+
+		console.log("new date ka code");
+
 		nextDay++;
 
 
 			console.log("Total problems solved: " + request.message);
-			console.log("Starting point is set to: " + request.message2);
+		//	console.log("Starting point is set to: " + request.message2);
 			console.log("hui execute");
 
 			let totalSolved = request.message;
 
-			let startingPoint = await request.message2;
-			console.log("hui execute");
+			let startingPoint =  totalSolved + await getStartingValueadd();
+			
 
 			if (
 				totalSolved < startingPoint &&
@@ -96,14 +111,46 @@ let nextDay =  b + 1;
 
 
 	if (request.message) {
+
+          
+
+
+			async function getStartingValueadd() {
+				return new Promise((resolve, reject) => {
+					chrome.storage.sync.get(["startingValueadd"], (result) => {
+						if (chrome.runtime.lastError) {
+							reject(chrome.runtime.lastError);
+						} else {
+							resolve(Number(result.startingValueadd));
+						}
+					});
+				});
+			}
+
 		console.log("Total problems solved: " + request.message);
 		console.log("Starting point is set to: " + request.message2);
 		console.log("hui execute");
 
 		let totalSolved = request.message;
 
-		let startingPoint = await request.message2;
-		console.log("hui execute");
+		// let startingPoint = await request.message2;
+		// console.log("hui execute");
+
+		let startingPoint =   totalSolved + await getStartingValueadd();
+
+		console.log("startingPoint", startingPoint, typeof startingPoint);
+
+		// if(startingPoint == null){
+
+		// 	chrome.storage.sync.get(
+		// 		["startingValueadd"],
+		// 		(result) => {
+		// 			console.log("startingValueadd ki value", result.startingValueadd);
+		// 			startingPoint = result.startingValueadd;
+		// 		}
+		// 	);
+			
+		// }
 
 		if (
 			totalSolved < startingPoint &&
