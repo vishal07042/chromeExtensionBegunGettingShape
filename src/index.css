@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+codapi-toolbar>button{
+    background-color: #2385fb;
+    border: 1px solid #2385fb;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 90px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+codapi-toolbar>a{
+    display: none;
+}
+canvas{
+    background: linear-gradient(to right, #f25149, #16c99c);
+}
+
+/* src/components/App2.css */
+.rotate-z-3 {
+    transform: rotateZ(3deg);
+}
+
+.aside{
+
+    position:absolute;
+    z-index: 12;
+    top: 76px;
+   left :20px;
+    width: 300px;
+   
+    background-color: transparent;
+}
+
+ .card {
+
+        background-color: #fff;
+
+        /* margin: 200px; */
+        /* width: 300px;
+        height: 300px; */
+        /* border: 1px solid #000; */
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        transform: rotateX(0deg) rotateY(0deg);
+        transition: transform 1.5s ease-in-out;
+    }
+
+    .card:hover{
+
+        transform: rotateX(12deg) rotateY(-14deg);
+        transition: transform 0.4s ease-in-out;
+        /* background: linear-gradient(to bottom right, #b4b641, #4ecd54, #ac3097); */
+        /* background: linear-gradient(120deg, #FF512F, #DD2476); */
+        /* background: linear-gradient(90deg, #2BC0E4, #EAECC6); */
+        /* background: linear-gradient(60deg, #8A2387, #E94057, #F27121); */
+
+
+
+    }
+
+    body{
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+    }
+
+
+    /* code{
+        font-size: 20px;
+    } */
+
+
+/* 
+    .cm-layer {
+    
+    resize: both;
+    overflow: auto !important;
+
+
+     } */
+
+     .CodeMirror {
+      resize: both;
+      overflow: auto !important;
+    }
+
+
+     /* .CodeMirror__wrapper {
+    resize: both;
+    overflow: auto !important;
+} */
