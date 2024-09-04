@@ -20,7 +20,7 @@ function WhatTorender() {
             {quizAppps === "App2" ? <App2 /> : null}
             {quizAppps === "DragDrop1" ? <QuizSection /> : null}
             {quizAppps === "DragDrop2" ? <DragDrop2 /> : null}
-           {quizAppps === "ColumnMatchingQuiz" ? <ColumnMatchingQuiz /> : null}
+           {quizAppps === "MatchtheColum" ? < ColumnMatchingQuiz/> : null}
         </div>
     );
 }

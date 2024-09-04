@@ -24,6 +24,7 @@
     "@uiw/react-codemirror": "^4.23.0",
     "canvas-confetti": "^1.9.3",
     "highlight.js": "^11.10.0",
+    "highlighted-code": "^0.3.7",
     "lucide-react": "^0.438.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
