@@ -1,100 +1,87 @@
 
+
 // import React, { useState, useRef, useEffect } from 'react';
 
 // const quizData = [
-//   [  {
-//         id: 1,
-//         "QuestionNo.":"1",
-//         question: "Given a string representing a number, return the closest number that is a palindrome.",
-//         correctAnswer: "Some other pattern"
-//     },
-//     {
-//         id: 2,
-//         "QuestionNo.":"1",
-//         question: "Given an array of numbers in the range 1 to n, find all the numbers that are missing in the array.",
-//         correctAnswer: "Cyclic Sort"
-//     },
-//     {
-//         id: 3,
-//         "QuestionNo.":"1",
-//         question: "Given a set of numbers, find the first 5 missing positive numbers.",
-//         correctAnswer: "Some other pattern"
-//     },
-//     {
-//         id: 4,
-//         "QuestionNo.":"1",
-//         question: "Given a set, return the number of subsets with the sum equal to 10.",
-//         correctAnswer: "Some other pattern"
-//     },
-//     {
-//         id: 5,
-//         question: "Given an array of integers, find two numbers such that they add up to a specific target number.",
-//         correctAnswer: "Two Pointers"
-//     },
-//     {
-//         id: 6,
-//         question: "Given a binary tree, find the maximum depth of the tree.",
-//         correctAnswer: "Depth-First Search"
-//     },
-//     {
-//         id: 7,
-//         question: "Given a string, find the length of the longest substring without repeating characters.",
-//         correctAnswer: "Sliding Window"
-//     },
-//     {
-//         id: 8,
-//         question: "Given an array of integers, find the contiguous subarray with the largest sum.",
-//         correctAnswer: "Kadane's Algorithm"
-//     }],
+//     [
+//         {
+//             id: 1,
+//             "QuestionNo.":"1",
+//             question: "Given a string representing a number, return the closest number that is a palindrome.",
+//             correctAnswer: "Some other pattern"
+//         },
+//         {
+//             id: 2,
+//             "QuestionNo.":"1",
+//             question: "Given an array of numbers in the range 1 to n, find all the numbers that are missing in the array.",
+//             correctAnswer: "Cyclic Sort"
+//         },
+//         {
+//             id: 3,
+//             "QuestionNo.":"1",
+//             question: "Given a set of numbers, find the first 5 missing positive numbers.",
+//             correctAnswer: "Some other pattern"
+//         },
+//         {
+//             id: 4,
+//             "QuestionNo.":"1",
+//             question: "Given a set, return the number of subsets with the sum equal to 10.",
+//             correctAnswer: "Some other pattern"
+//         },
+//         {
+//             id: 5,
+//             "QuestionNo.":"1",
+//             question: "Given an array of integers, find two numbers such that they add up to a specific target number.",
+//             correctAnswer: "Two Pointers"
+//         },
+       
+//     ],
+//     [
+//         {
+//             id: 6,
+//             "QuestionNo.":"2",
+//             question: "Given a binary tree, find the maximum depth of the tree.",
+//             correctAnswer: "Depth-First Search"
+//         },
+//         {
+//             id: 7,
+//             "QuestionNo.":"2",
+//             question: "Given a string, find the length of the longest substring without repeating characters.",
+//             correctAnswer: "Sliding Window"
+//         },{
+//             id: 8,
+//             "QuestionNo.":"2",
+//             question: "Given an array of integers, find the contiguous subarray with the largest sum.",
+//             correctAnswer: "Kadane's Algorithm"
+//         }
+//     ],
 //     [
 //         {
 //             id: 9,
-            
+//             "QuestionNo.":"3",
 //             question: "Given a binary tree, find the maximum depth of the tree.",
 //             correctAnswer: "Depth-First Search"
 //         },
 //         {
 //             id: 10,
+//             "QuestionNo.":"3",
 //             question: "Given a string, find the length of the longest substring without repeating characters.",
 //             correctAnswer: "Sliding Window"
 //         },
 //         {
 //             id: 11,
-//             question: "Given an array of integers, find the contiguous subarray with the largest sum.",
-//             correctAnswer: "Kadane's Algorithm"
-//         },
-//         {
-//             id: 12,
-//             question: "Given a set, return the number of subsets with the sum equal to 10.",
-//             correctAnswer: "Some other pattern"
-//         },
-//         {
-//             id: 13,
-//             question: "Given an array of integers, find two numbers such that they add up to a specific target number.",
-//             correctAnswer: "Two Pointers"
-//         },
-//         {
-//             id: 14,
-//             question: "Given a binary tree, find the maximum depth of the tree.",
-//             correctAnswer: "Depth-First Search"
-//         },
-//         {
-//             id: 15,
-//             question: "Given a string, find the length of the longest substring without repeating characters.",
-//             correctAnswer: "Sliding Window"
-//         },
-//         {
-//             id: 16,
+//             "QuestionNo.":"3",
 //             question: "Given an array of integers, find the contiguous subarray with the largest sum.",
 //             correctAnswer: "Kadane's Algorithm"
 //         }
 //     ]
 // ];
 
-// const answerOptions = [
-//     "Cyclic Sort",
-//     "Some other pattern"
-// ];
+// // const answerOptions = [
+// //     "Cyclic Sort",
+// //     "Some other pattern"
+// // ];
+// const answerOptions = Array.from(new Set(quizData[0].map(item => item.correctAnswer)));
 
 // const ColumnMatchingQuiz = () => {
 //     const [selectedQuestion, setSelectedQuestion] = useState(null);
@@ -106,7 +93,7 @@
 //     const quizContainerRef = useRef(null);
 
 //     useEffect(() => {
-//         questionRefs.current = questionRefs.current.slice(0, quizData.length);
+//         questionRefs.current = questionRefs.current.slice(0, quizData[0].length);
 //         answerRefs.current = answerRefs.current.slice(0, answerOptions.length);
 //     }, []);
 
@@ -123,7 +110,7 @@
 
 //     const handleSubmit = () => {
 //         let correctAnswers = 0;
-//         quizData.forEach(item => {
+//         quizData[0].forEach(item => {
 //             if (matches[item.id] === item.correctAnswer) {
 //                 correctAnswers++;
 //             }
@@ -154,6 +141,9 @@
 //             height: rect.height
 //         };
 //     };
+//     const handleNextQuestions = () => {
+//         setQuizData(quizData[1]);
+//     }   
 
 //     return (
 //         <div ref={quizContainerRef} className="max-w-6xl mx-auto p-4 bg-gray-900 text-white relative">
@@ -162,7 +152,7 @@
 //             </div>
 //             <div className="flex justify-between">
 //                 <div className="w-5/12">
-//                     {quizData.map((item, index) => (
+//                     {quizData[0].map((item, index) => (
 //                         <div
 //                             key={item.id}
 //                             ref={el => questionRefs.current[index] = el}
@@ -194,7 +184,7 @@
 //                         </marker>
 //                     </defs>
 //                     {Object.entries(matches).map(([questionId, answer]) => {
-//                         const questionIndex = quizData.findIndex(q => q.id === parseInt(questionId));
+//                         const questionIndex = quizData[0].findIndex(q => q.id === parseInt(questionId));
 //                         const answerIndex = answerOptions.indexOf(answer);
 //                         const questionEl = questionRefs.current[questionIndex];
 //                         const answerEl = answerRefs.current[answerIndex];
@@ -233,7 +223,7 @@
 //                 <div className="mt-4">
 //                     <div>Quiz Results</div>
 //                     <div>
-//                         Your score: {score} out of {quizData.length}
+//                         Your score: {score} out of {quizData[0].length}
 //                     </div>
 //                     <button
 //                         onClick={resetQuiz}
@@ -243,6 +233,7 @@
 //                     </button>
 //                 </div>
 //             )}
+//            <button className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' onClick={handleNextQuestions}>Next Questions</button>
 //         </div>
 //     );
 // };
@@ -255,40 +246,77 @@ const quizData = [
     [
         {
             id: 1,
+            "QuestionNo.": "1",
             question: "Given a string representing a number, return the closest number that is a palindrome.",
             correctAnswer: "Some other pattern"
         },
         {
             id: 2,
+            "QuestionNo.": "1",
             question: "Given an array of numbers in the range 1 to n, find all the numbers that are missing in the array.",
             correctAnswer: "Cyclic Sort"
         },
         {
             id: 3,
+            "QuestionNo.": "1",
             question: "Given a set of numbers, find the first 5 missing positive numbers.",
             correctAnswer: "Some other pattern"
         },
         {
             id: 4,
+            "QuestionNo.": "1",
             question: "Given a set, return the number of subsets with the sum equal to 10.",
             correctAnswer: "Some other pattern"
         },
         {
             id: 5,
+            "QuestionNo.": "1",
             question: "Given an array of integers, find two numbers such that they add up to a specific target number.",
             correctAnswer: "Two Pointers"
         },
-       
+
     ],
-];
-
-// const answerOptions = [
-//     "Cyclic Sort",
-//     "Some other pattern"
-// ];
-const answerOptions = Array.from(new Set(quizData[0].map(item => item.correctAnswer)));
-
-const ColumnMatchingQuiz = () => {
+    [
+        {
+            id: 6,
+            "QuestionNo.": "2",
+            question: "Given a binary tree, find the maximum depth of the tree.",
+            correctAnswer: "Depth-First Search"
+        },
+        {
+            id: 7,
+            "QuestionNo.": "2",
+            question: "Given a string, find the length of the longest substring without repeating characters.",
+            correctAnswer: "Sliding Window"
+        }, {
+            id: 8,
+            "QuestionNo.": "2",
+            question: "Given an array of integers, find the contiguous subarray with the largest sum.",
+            correctAnswer: "Kadane's Algorithm"
+        }
+    ],
+    [
+        {
+            id: 9,
+            "QuestionNo.": "3",
+            question: "Given a binary tree, find the maximum depth of the tree.",
+            correctAnswer: "Depth-First Search"
+        },
+        {
+            id: 10,
+            "QuestionNo.": "3",
+            question: "Given a string, find the length of the longest substring without repeating characters.",
+            correctAnswer: "Sliding Window"
+        },
+        {
+            id: 11,
+            "QuestionNo.": "3",
+            question: "Given an array of integers, find the contiguous subarray with the largest sum.",
+            correctAnswer: "Kadane's Algorithm"
+        }
+    ]
+]; const ColumnMatchingQuiz = () => {
+    const [currentSetIndex, setCurrentSetIndex] = useState(0);
     const [selectedQuestion, setSelectedQuestion] = useState(null);
     const [matches, setMatches] = useState({});
     const [showResults, setShowResults] = useState(false);
@@ -297,10 +325,15 @@ const ColumnMatchingQuiz = () => {
     const answerRefs = useRef([]);
     const quizContainerRef = useRef(null);
 
+    const answerOptions = Array.from(new Set(quizData[currentSetIndex].map(item => item.correctAnswer)));
+
     useEffect(() => {
-        questionRefs.current = questionRefs.current.slice(0, quizData[0].length);
+        // Randomize the answer options array
+        const shuffledAnswerOptions = [...answerOptions].sort(() => Math.random() - 0.5);
+        console.log()
+        questionRefs.current = questionRefs.current.slice(0, quizData[currentSetIndex].length);
         answerRefs.current = answerRefs.current.slice(0, answerOptions.length);
-    }, []);
+    }, [currentSetIndex, answerOptions]);
 
     const handleQuestionClick = (questionId) => {
         setSelectedQuestion(questionId);
@@ -315,7 +348,7 @@ const ColumnMatchingQuiz = () => {
 
     const handleSubmit = () => {
         let correctAnswers = 0;
-        quizData[0].forEach(item => {
+        quizData[currentSetIndex].forEach(item => {
             if (matches[item.id] === item.correctAnswer) {
                 correctAnswers++;
             }
@@ -347,6 +380,13 @@ const ColumnMatchingQuiz = () => {
         };
     };
 
+    const handleNextQuestions = () => {
+        if (currentSetIndex < quizData.length - 1) {
+            setCurrentSetIndex(prevIndex => prevIndex + 1);
+            resetQuiz();
+        }
+    };
+
     return (
         <div ref={quizContainerRef} className="max-w-6xl mx-auto p-4 bg-gray-900 text-white relative">
             <div className="bg-gray-800 p-2 mb-4 rounded">
@@ -354,7 +394,7 @@ const ColumnMatchingQuiz = () => {
             </div>
             <div className="flex justify-between">
                 <div className="w-5/12">
-                    {quizData[0].map((item, index) => (
+                    {quizData[currentSetIndex].map((item, index) => (
                         <div
                             key={item.id}
                             ref={el => questionRefs.current[index] = el}
@@ -386,7 +426,7 @@ const ColumnMatchingQuiz = () => {
                         </marker>
                     </defs>
                     {Object.entries(matches).map(([questionId, answer]) => {
-                        const questionIndex = quizData[0].findIndex(q => q.id === parseInt(questionId));
+                        const questionIndex = quizData[currentSetIndex].findIndex(q => q.id === parseInt(questionId));
                         const answerIndex = answerOptions.indexOf(answer);
                         const questionEl = questionRefs.current[questionIndex];
                         const answerEl = answerRefs.current[answerIndex];
@@ -425,7 +465,7 @@ const ColumnMatchingQuiz = () => {
                 <div className="mt-4">
                     <div>Quiz Results</div>
                     <div>
-                        Your score: {score} out of {quizData[0].length}
+                        Your score: {score} out of {quizData[currentSetIndex].length}
                     </div>
                     <button
                         onClick={resetQuiz}
@@ -435,6 +475,12 @@ const ColumnMatchingQuiz = () => {
                     </button>
                 </div>
             )}
+            <button
+                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mx-2"
+                onClick={handleNextQuestions}
+            >
+                Next Questions
+            </button>
         </div>
     );
 };
