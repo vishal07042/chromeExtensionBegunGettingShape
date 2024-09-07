@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import quizQuestions from './DragDropQuestiosn.json';
 
 const DragDrop2 = () => {
@@ -10,7 +9,7 @@ const DragDrop2 = () => {
     const textAreaRef = useRef(null);
 
     useEffect(() => {
-        setOptions(quizQuestions[currentQuestionIndex].options);
+        setOptions(quizQuestions[currentQuestionIndex].options.concat({ id: 'closingBracket', content: '}' }));
     }, [currentQuestionIndex]);
 
     const currentQuestion = quizQuestions[currentQuestionIndex];
@@ -20,35 +19,71 @@ const DragDrop2 = () => {
     }
 
     const onDragStart = (e, content, id) => {
+        console.log(`Drag started with content: ${content} and id: ${id}`);
         e.dataTransfer.setData('text/plain', JSON.stringify({ content, id }));
     };
 
     const onDragOver = (e) => {
+        console.log("Drag over event triggered");
         e.preventDefault();
+    };
+
+    const escapeSpecialChars = (str) => {
+        console.log(`Escaping special characters in string: ${str}`);
+        return str.replace(/[/]/g, '');  // Remove slashes if needed
     };
 
     const onDrop = (e) => {
         e.preventDefault();
-        const { content, id } = JSON.parse(e.dataTransfer.getData('text/plain'));
+        let { content, id } = JSON.parse(e.dataTransfer.getData('text/plain'));
+        console.log(`Dropped content: ${content}, id: ${id}`);
+
+        // Process content to remove unwanted characters
+        content = escapeSpecialChars(content);
 
         if (!answer.includes(content)) {
             const cursorPosition = textAreaRef.current.selectionStart;
             const textBeforeCursor = answer.slice(0, cursorPosition);
             const textAfterCursor = answer.slice(cursorPosition);
-            setAnswer(textBeforeCursor + content + '\n' + textAfterCursor);
+
+            console.log(`Cursor position: ${cursorPosition}`);
+            console.log(`Text before cursor: "${textBeforeCursor}", Text after cursor: "${textAfterCursor}"`);
+
+            // Ensure the new content is inserted correctly
+            const updatedAnswer = `${textBeforeCursor}${content}\n${textAfterCursor}`;
+            setAnswer(updatedAnswer);
+
+            console.log(`Updated answer: ${updatedAnswer}`);
+
+            // Handle removing dropped option from options list
+            setOptions(options.filter(option => option.id !== id));
+
+            setTimeout(() => {
+                textAreaRef.current.focus();
+                textAreaRef.current.selectionStart = cursorPosition + content.length + 1;
+                textAreaRef.current.selectionEnd = cursorPosition + content.length + 1;
+                console.log("Cursor repositioned after drop");
+            }, 0);
+        } else {
+            console.log("Dropped content already exists in the answer.");
+            // Remove the option even if the content already exists in the answer
             setOptions(options.filter(option => option.id !== id));
         }
     };
 
     const checkAnswer = () => {
+        console.log("Checking answer...");
         const isCorrect = answer.trim() === currentQuestion.correctAnswer.trim();
         setFeedback(isCorrect ? 'Correct! Great job!' : 'Incorrect. Try again.');
+        console.log(`Answer is ${isCorrect ? "correct" : "incorrect"}`);
     };
 
     const nextQuestion = () => {
+        console.log("Loading next question...");
         setCurrentQuestionIndex(getRandomIndex());
         setAnswer('');
         setFeedback('');
+        console.log(`New question index: ${currentQuestionIndex}`);
     };
 
     return (
@@ -62,7 +97,7 @@ const DragDrop2 = () => {
                 onChange={(e) => setAnswer(e.target.value)}
                 onDragOver={onDragOver}
                 onDrop={onDrop}
-                className='CodeMirror text-3xl mt-10 line-height-10'
+                className='CodeMirror text-3xl mt-10 line-height-10 h-[400px] w-[600px]'
                 placeholder="Drop code snippets here..."
             />
 
