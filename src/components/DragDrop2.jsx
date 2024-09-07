@@ -98,7 +98,7 @@ const DragDrop2 = () => {
             <h2 className="text-xl font-bold mb-4">DSA Quiz: Question {currentQuestion.id}</h2>
             <p className="mb-4">{currentQuestion.question}</p>
            
-            <textarea
+            <textArea
                 ref={textAreaRef}
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
@@ -108,7 +108,6 @@ const DragDrop2 = () => {
                 placeholder="Drop code snippets here..."
                 height="400px"
                 width="600px"
-
                 extensions={[cpp()]}
                 theme='dark' // Optional: Choose a theme
                 basicSetup={basicSetup}
