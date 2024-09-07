@@ -1,6 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import quizQuestions from './DragDropQuestiosn.json';
 
+import CodeMirror from "@uiw/react-codemirror";
+import { StreamLanguage } from "@codemirror/language";
+import { cpp } from "@codemirror/lang-cpp";
+import { basicSetup } from "codemirror";
+import { EditorView } from "@codemirror/view";
+import { autocompletion, completeFromList } from "@codemirror/autocomplete";
+
 const DragDrop2 = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(getRandomIndex());
     const [answer, setAnswer] = useState('');
@@ -90,17 +97,23 @@ const DragDrop2 = () => {
         <div className="p-4 max-w-md mx-auto bg-white rounded-xl shadow-md my-5">
             <h2 className="text-xl font-bold mb-4">DSA Quiz: Question {currentQuestion.id}</h2>
             <p className="mb-4">{currentQuestion.question}</p>
-
+           
             <textarea
                 ref={textAreaRef}
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 onDragOver={onDragOver}
                 onDrop={onDrop}
-                className='CodeMirror text-3xl mt-10 line-height-10 h-[400px] w-[600px]'
+                className='CodeMirror text-3xl mt-10 line-height-10 h-[400px] w-[600px] language-cpp'
                 placeholder="Drop code snippets here..."
-            />
+                height="400px"
+                width="600px"
 
+                extensions={[cpp()]}
+                theme='dark' // Optional: Choose a theme
+                basicSetup={basicSetup}
+            />
+          
             <div className="mb-4">
                 {options.map((option) => (
                     <div
