@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Popup = () => {
     const [choosenOptions, setChoosenOptions] = useState("quiz1");
 
-    const optArr = ["DragDrop1", "DragDrop2", "MatchtheColum"];
+    const optArr = ["choose quiz", "DragDrop1", "DragDrop2", "MatchtheColum"];
 
     return <div>
 

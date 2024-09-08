@@ -1,64 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import '../index.css'
-
+import dragDropQuestions from './DropQuestions1.json';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
-
-const quizQuestions = [
-    {
-        question: "What is the time complexity of accessing an element in an array?",
-        options: ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
-        correctAnswer: 0
-    },
-    {
-        question: "Which data structure follows the Last In First Out (LIFO) principle?",
-        options: ["Queue", "Stack", "Linked List", "Tree"],
-        correctAnswer: 1
-    },
-    {
-        question: "What is the space complexity of a linked list compared to an array?",
-        options: ["Always less", "Always more", "Same", "Depends on the implementation"],
-        correctAnswer: 3
-    }
-];
-
-const dragDropQuestions = [
-    {
-        question: "Order these data structures from fastest to slowest average access time:",
-        items: ["Array", "Binary Search Tree", "Linked List", "Hash Table"],
-        correctOrder: ["Hash Table", "Array", "Binary Search Tree", "Linked List"]
-    },
-    {
-        question: "Order these sorting algorithms from lowest to highest time complexity (average case):",
-        items: ["Bubble Sort", "Merge Sort", "Quick Sort", "Insertion Sort"],
-        correctOrder: ["Merge Sort", "Quick Sort", "Insertion Sort", "Bubble Sort"]
-    },
-    {
-        question: "Order these search algorithms from fastest to slowest (average case):",
-        items: ["Linear Search", "Binary Search", "Jump Search", "Exponential Search"],
-        correctOrder: ["Binary Search", "Exponential Search", "Jump Search", "Linear Search"]
-    },
-    {
-        question: "Order these data structures from least to most memory usage:",
-        items: ["Array", "Linked List", "Hash Table", "Binary Search Tree"],
-        correctOrder: ["Array", "Linked List", "Binary Search Tree", "Hash Table"]
-    },
-    {
-        question: "Order these operations on a Binary Search Tree from fastest to slowest (average case):",
-        items: ["Search", "Insertion", "Deletion", "Traversal"],
-        correctOrder: ["Search", "Insertion", "Deletion", "Traversal"]
-    },
-    {
-        question: "Order these graph traversal algorithms from least to most memory usage:",
-        items: ["Depth-First Search", "Breadth-First Search", "Dijkstra's Algorithm", "A* Search"],
-        correctOrder: ["Depth-First Search", "Breadth-First Search", "Dijkstra's Algorithm", "A* Search"]
-    },
-    {
-        question: "Order these data structures from least to most suitable for frequent insertions and deletions:",
-        items: ["Array", "Linked List", "Stack", "Queue"],
-        correctOrder: ["Linked List", "Stack", "Queue", "Array"]
-    }
-];
 
 const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
     const [currentItems, setCurrentItems] = useState(items);
@@ -130,7 +74,7 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                     Next Question
                 </button>
                 {isCorrect !== null && (
-                    <span className={`ml-4 ${isCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                    <span className={`ml-4  p-2 bg-black ${isCorrect ? 'text-green-500' : 'text-red-500'}`}>
                         {isCorrect ? <CheckCircle2 className="ml-2 inline-block" /> : <AlertCircle className="ml-2 inline-block" />}
                         {isCorrect ? ' Correct!' : ' Incorrect. Try again.'}
                     </span>
@@ -141,26 +85,20 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
 };
 
 const QuizSection = () => {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState(getRandomQuestion());
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [quizType, setQuizType] = useState('multipleChoice');
+    const [quizType, setQuizType] = useState('dragDrop');
 
-    const handleAnswerClick = (selectedOption) => {
-        setSelectedAnswer(selectedOption);
-        if (selectedOption === quizQuestions[currentQuestion].correctAnswer) {
-            setScore(score + 1);
-        }
-    };
+    function getRandomQuestion() {
+        const randomIndex = Math.floor(Math.random() * dragDropQuestions.length);
+        return dragDropQuestions[randomIndex];
+    }
 
     const handleNextQuestion = () => {
         setSelectedAnswer(null);
-        if (currentQuestion < (quizType === 'multipleChoice' ? quizQuestions.length : dragDropQuestions.length) - 1) {
-            setCurrentQuestion(currentQuestion + 1);
-        } else {
-            setShowScore(true);
-        }
+        setCurrentQuestion(getRandomQuestion());
     };
 
     const handleDragDropComplete = (isCorrect) => {
@@ -170,7 +108,7 @@ const QuizSection = () => {
     };
 
     const resetQuiz = () => {
-        setCurrentQuestion(0);
+        setCurrentQuestion(getRandomQuestion());
         setScore(0);
         setShowScore(false);
         setSelectedAnswer(null);
@@ -181,15 +119,12 @@ const QuizSection = () => {
         resetQuiz();
     };
 
-    const totalQuestions = quizType === 'multipleChoice' ? quizQuestions.length : dragDropQuestions.length;
+    const totalQuestions = dragDropQuestions.length;
 
     return (
-        <div className="container mx-auto p-4 z-78">
+        <div className="container mx-auto p-4 ">
             <h1 className="text-3xl font-bold mb-6">DSA in C++ Quiz</h1>
             <div className="mb-4">
-                <button onClick={() => handleQuizTypeChange('multipleChoice')} className={`mr-2 py-2 px-4 rounded ${quizType === 'multipleChoice' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>
-                    Multiple Choice
-                </button>
                 <button onClick={() => handleQuizTypeChange('dragDrop')} className={`py-2 px-4 rounded ${quizType === 'dragDrop' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>
                     Drag and Drop
                 </button>
@@ -202,48 +137,14 @@ const QuizSection = () => {
                     <button onClick={resetQuiz} className="mt-4 bg-blue-500 text-white py-2 px-4 rounded">Restart Quiz</button>
                 </div>
             ) : (
-                quizType === 'multipleChoice' ? (
-                    <div className="border p-4 rounded-md shadow-sm">
-                        <div className="mb-2">
-                            <div className="font-semibold text-lg">Question {currentQuestion + 1}/{quizQuestions.length}</div>
-                            <div>{quizQuestions[currentQuestion].question}</div>
-                        </div>
-                        <div>
-                            {quizQuestions[currentQuestion].options.map((option, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleAnswerClick(index)}
-                                    className={`w-full mb-2 py-2 px-4 rounded ${selectedAnswer === index
-                                        ? index === quizQuestions[currentQuestion].correctAnswer
-                                            ? 'bg-green-500 hover:bg-green-600 text-white'
-                                            : 'bg-red-500 hover:bg-red-600 text-white'
-                                        : 'bg-gray-100'
-                                        }`}
-                                    disabled={selectedAnswer !== null}
-                                >
-                                    {option}
-                                    {selectedAnswer === index && (
-                                        index === quizQuestions[currentQuestion].correctAnswer
-                                            ? <CheckCircle2 className="ml-2 inline-block" />
-                                            : <AlertCircle className="ml-2 inline-block" />
-                                    )}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="mt-4">
-                            <button onClick={handleNextQuestion} disabled={selectedAnswer === null} className="bg-blue-500 text-white py-2 px-4 rounded">
-                                Next Question
-                            </button>
-                        </div>
-                    </div>
-                ) : (
+                quizType === 'dragDrop' ? (
                     <DragDropQuestion
-                        question={dragDropQuestions[currentQuestion]}
-                        items={dragDropQuestions[currentQuestion].items}
+                        question={currentQuestion}
+                        items={currentQuestion.items}
                         onComplete={handleDragDropComplete}
                         onNext={handleNextQuestion}
                     />
-                )
+                ) : null
             )}
         </div>
     );

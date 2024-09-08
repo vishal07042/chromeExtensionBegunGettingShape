@@ -1,0 +1,90 @@
+[
+    {
+        "question": "Order these data structures from fastest to slowest average access time:",
+        "items": ["Array", "Binary Search Tree", "Linked List", "Hash Table"],
+        "correctOrder": ["Hash Table", "Array", "Binary Search Tree", "Linked List"],
+        "hints": [
+            {"hint1": "Hash Table: Provides constant-time average access time."},
+            {"hint2": "Array: Provides constant-time average access time."},
+            {"hint3": "Binary Search Tree: Provides logarithmic-time average access time."},
+            {"hint4": "Linked List: Provides linear-time average access time."}
+        ]
+    },
+    {
+        "question": "Order these sorting algorithms from lowest to highest time complexity (average case):",
+        "items": ["Bubble Sort", "Merge Sort", "Quick Sort", "Insertion Sort"],
+        "correctOrder": ["Merge Sort", "Quick Sort", "Insertion Sort", "Bubble Sort"],
+        "hints": [
+            {"hint1": "Merge Sort: O(n log n) time complexity, stable, and efficient for large datasets."},
+            {"hint2": "Quick Sort: O(n log n) average case, but can degrade to O(n^2) in worst case. Often faster in practice."},
+            {"hint3": "Insertion Sort: O(n^2) time complexity, but efficient for small datasets or nearly sorted arrays."},
+            {"hint4": "Bubble Sort: O(n^2) time complexity, least efficient among these for large datasets."},
+            {"hint5": "Consider the trade-offs between time complexity, space complexity, and stability of each algorithm."},
+            {"hint6": "The efficiency of these algorithms can vary based on the input data characteristics."}
+        ]
+    },
+    {
+        "question": "Order these search algorithms from fastest to slowest (average case):",
+        "items": ["Linear Search", "Binary Search", "Jump Search", "Exponential Search"],
+        "correctOrder": ["Binary Search", "Exponential Search", "Jump Search", "Linear Search"],
+        "hints": [
+            {"hint1": "Binary Search: Provides O(log n) time complexity, very efficient for sorted arrays."},
+            {"hint2": "Exponential Search: O(log n) time complexity, useful for unbounded searches."},
+            {"hint3": "Jump Search: O(√n) time complexity, a middle ground between linear and binary search."},
+            {"hint4": "Linear Search: O(n) time complexity, simple but slowest for large datasets."},
+            {"hint5": "Consider the trade-offs between time complexity and implementation complexity."},
+            {"hint6": "Binary and Exponential searches require sorted data, while Jump and Linear don't."}
+        ]
+    },
+    {
+        "question": "Order these data structures from least to most memory usage:",
+        "items": ["Array", "Linked List", "Hash Table", "Binary Search Tree"],
+        "correctOrder": ["Array", "Linked List", "Binary Search Tree", "Hash Table"],
+        "hints": [
+            {"hint1": "Array: Uses contiguous memory blocks, typically the most memory-efficient."},
+            {"hint2": "Linked List: Requires additional memory for storing pointers. Linked List > Array in memory usage."},
+            {"hint3": "Binary Search Tree: Uses memory for node values and pointers to child nodes. Binary Search Tree > Linked List in memory usage."},
+            {"hint4": "Hash Table: Often requires extra space for handling collisions and maintaining load factor. Hash Table > Binary Search Tree in memory usage."},
+            {"hint5": "Memory usage order: Array < Linked List < Binary Search Tree < Hash Table"}
+        ]
+    },
+    {
+        "question": "Order these operations on a Binary Search Tree from fastest to slowest (average case):",
+        "items": ["Search", "Insertion", "Deletion", "Traversal"],
+        "correctOrder": ["Search", "Insertion", "Deletion", "Traversal"],
+        "hints": [
+            {"hint1": "Search: O(log n) time complexity, efficient for locating a value in the tree."},
+            {"hint2": "Insertion: O(log n) time complexity, efficient for adding a new value to the tree."},
+            {"hint3": "Deletion: O(log n) time complexity, efficient for removing a value from the tree."},
+            {"hint4": "Traversal: O(n) time complexity, requires visiting all nodes in the tree."},
+            {"hint5": "Consider the trade-offs between time complexity and the structure of the tree."},
+            {"hint6": "The efficiency of these operations can vary based on the tree's balance and the specific data characteristics."}
+        ]
+    },
+    {
+        "question": "Order these graph traversal algorithms from least to most memory usage:",
+        "items": ["Depth-First Search", "Breadth-First Search", "Dijkstra's Algorithm", "A* Search"],
+        "correctOrder": ["Depth-First Search", "Breadth-First Search", "Dijkstra's Algorithm", "A* Search"],
+        "hints": [
+            {"hint1": "Depth-First Search: Uses a stack, typically less memory than Breadth-First Search."},
+            {"hint2": "Breadth-First Search: Uses a queue, typically more memory than Depth-First Search."},
+            {"hint3": "Dijkstra's Algorithm: Uses a priority queue, typically more memory than A* Search."},
+            {"hint4": "A* Search: Uses a priority queue, typically more memory than Dijkstra's Algorithm."},
+            {"hint5": "Consider the trade-offs between memory usage and the specific data characteristics."},
+            {"hint6": "The efficiency of these algorithms can vary based on the graph size and structure."}
+        ]
+    },
+    {
+        "question": "Order these data structures from least to most suitable for frequent insertions and deletions:",
+        "items": ["Array", "Linked List", "Stack", "Queue"],
+        "correctOrder": ["Linked List", "Stack", "Queue", "Array"],
+        "hints": [
+            {"hint1": "Linked List: Provides O(1) time complexity for insertions and deletions at the beginning or end."},
+            {"hint2": "Stack: Provides O(1) time complexity for insertions and deletions at the top."},
+            {"hint3": "Queue: Provides O(1) time complexity for insertions at the end and deletions at the beginning."},
+            {"hint4": "Array: Provides O(n) time complexity for insertions and deletions at any position."},
+            {"hint5": "Consider the trade-offs between time complexity and the specific data characteristics."},
+            {"hint6": "The efficiency of these operations can vary based on the data size and the specific requirements of the application."}
+        ]
+    }
+]
