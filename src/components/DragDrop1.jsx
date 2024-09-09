@@ -9,7 +9,7 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
     const [isCorrect, setIsCorrect] = useState(null);
     const [draggingIndex, setDraggingIndex] = useState(null);
     const [dragOverIndex, setDragOverIndex] = useState(null);
-
+    const [hintCount, setHintCount] = useState(0);
     useEffect(() => {
         setCurrentItems(items);
         setIsCorrect(null);
@@ -73,6 +73,21 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                 <button onClick={onNext} disabled={isCorrect === null} className="bg-gray-300 py-2 px-4 rounded">
                     Next Question
                 </button>
+                <button 
+                    onClick={() => setHintCount(prevCount => prevCount + 1)} 
+                    className="ml-2 bg-yellow-500 text-white py-2 px-4 rounded m-4"
+                    disabled={hintCount >= question.hints.length}
+                >
+                    Show Hint
+                </button>
+                {hintCount > 0 && (
+                    <div className="mt-2 p-2 bg-yellow-100 rounded m-4">
+                        {question.hints.slice(0, hintCount).map((hint, index) => (
+                            <p key={index} className="text-sm">{Object.values(hint)[0]}</p>
+                        ))}
+                    </div>
+                )}
+                <button onClick={() => setHintCount(hintCount + 1)}>show hint {hintCount}</button>
                 {isCorrect !== null && (
                     <span className={`ml-4  p-2 bg-black ${isCorrect ? 'text-green-500' : 'text-red-500'}`}>
                         {isCorrect ? <CheckCircle2 className="ml-2 inline-block" /> : <AlertCircle className="ml-2 inline-block" />}
