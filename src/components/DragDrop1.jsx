@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
 
-import '../index.css'
+
+import React, { useState, useEffect } from 'react';
+import '../index.css';
 import dragDropQuestions from './DropQuestions1.json';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
+import { l } from 'vite/dist/node/types.d-aGj9QkWt';
 
 const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
     const [currentItems, setCurrentItems] = useState(items);
@@ -10,9 +12,11 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
     const [draggingIndex, setDraggingIndex] = useState(null);
     const [dragOverIndex, setDragOverIndex] = useState(null);
     const [hintCount, setHintCount] = useState(0);
+
     useEffect(() => {
         setCurrentItems(items);
         setIsCorrect(null);
+        setHintCount(0); // Reset hints on question change
     }, [question, items]);
 
     const onDragStart = (e, index) => {
@@ -42,8 +46,12 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
 
     const checkAnswer = () => {
         const correct = JSON.stringify(currentItems) === JSON.stringify(question.correctOrder);
+        console.log("check anwer is cliked");
+        console.log("correct answer is",correct)
         setIsCorrect(correct);
         onComplete(correct);
+        console.log(correctanswer)
+        console.log("Correct order:", JSON.stringify(question.correctOrder));
     };
 
     return (
@@ -59,7 +67,7 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                             onDragOver={(e) => onDragOver(e, index)}
                             onDrop={(e) => onDrop(e, index)}
                             onDragEnd={onDragEnd}
-                            className={`flex items-center p-2 bg-gray-100 rounded cursor-move ${draggingIndex === index ? 'dragging' : ''} ${dragOverIndex === index ? 'drag-over' : ''}`}
+                            className={`flex items-center p-2 m-2 bg-gray-100 text-black text-2xl rounded cursor-move ${draggingIndex === index ? 'dragging' : ''} ${dragOverIndex === index ? 'drag-over' : ''}`}
                         >
                             {item}
                         </li>
@@ -73,23 +81,22 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                 <button onClick={onNext} disabled={isCorrect === null} className="bg-gray-300 py-2 px-4 rounded">
                     Next Question
                 </button>
-                <button 
-                    onClick={() => setHintCount(prevCount => prevCount + 1)} 
-                    className="ml-2 bg-yellow-500 text-white py-2 px-4 rounded m-4"
+                <button
+                    onClick={() => setHintCount((prevCount) => prevCount + 1)}
+                    className="ml-2 bg-yellow-500 text-white py-2 px-4 rounded"
                     disabled={hintCount >= question.hints.length}
                 >
                     Show Hint
                 </button>
                 {hintCount > 0 && (
-                    <div className="mt-2 p-2 bg-yellow-100 rounded m-4">
+                    <div className="mt-2 p-2 bg-yellow-100 rounded">
                         {question.hints.slice(0, hintCount).map((hint, index) => (
                             <p key={index} className="text-sm">{Object.values(hint)[0]}</p>
                         ))}
                     </div>
                 )}
-                <button onClick={() => setHintCount(hintCount + 1)}>show hint {hintCount}</button>
                 {isCorrect !== null && (
-                    <span className={`ml-4  p-2 bg-black ${isCorrect ? 'text-green-500' : 'text-red-500'}`}>
+                    <span className={`ml-4 p-2 bg-black ${isCorrect ? 'text-green-500' : 'text-red-500'}`}>
                         {isCorrect ? <CheckCircle2 className="ml-2 inline-block" /> : <AlertCircle className="ml-2 inline-block" />}
                         {isCorrect ? ' Correct!' : ' Incorrect. Try again.'}
                     </span>
@@ -103,7 +110,6 @@ const QuizSection = () => {
     const [currentQuestion, setCurrentQuestion] = useState(getRandomQuestion());
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [quizType, setQuizType] = useState('dragDrop');
 
     function getRandomQuestion() {
@@ -112,7 +118,6 @@ const QuizSection = () => {
     }
 
     const handleNextQuestion = () => {
-        setSelectedAnswer(null);
         setCurrentQuestion(getRandomQuestion());
     };
 
@@ -126,7 +131,6 @@ const QuizSection = () => {
         setCurrentQuestion(getRandomQuestion());
         setScore(0);
         setShowScore(false);
-        setSelectedAnswer(null);
     };
 
     const handleQuizTypeChange = (type) => {
@@ -137,7 +141,7 @@ const QuizSection = () => {
     const totalQuestions = dragDropQuestions.length;
 
     return (
-        <div className="container mx-auto p-4 ">
+        <div className="container mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6">DSA in C++ Quiz</h1>
             <div className="mb-4">
                 <button onClick={() => handleQuizTypeChange('dragDrop')} className={`py-2 px-4 rounded ${quizType === 'dragDrop' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>

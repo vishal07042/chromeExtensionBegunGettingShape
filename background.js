@@ -569,14 +569,7 @@ let cpp = [
 		],
 		answer: "1. The variable cannot be modified by any part of the code in the same application or thread. However, other threads may modify it.",
 	},
-	{
-		id: 51,
-		title: "# Q50. What is the assumed type of a constant represented in the source code as `0.44`?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. double", "2. long float", "3. long double", "4. float"],
-		answer: "1. double",
-	},
+	
 	{
 		id: 52,
 		title: "# Q51. What is an appropriate way of removing `my_object` as shown below?",
@@ -1021,19 +1014,19 @@ let cpp = [
 		],
 		answer: "2. An include guard uses a macro to achieve single inclusion, but the compiler cannot prevent the programmer from defining that macro elsewhere, which would result in no inclusion at all",
 	},
-	{
-		id: 91,
-		title: "# Q90. Which of the following statements is valid?",
-		text: undefined,
-		code2: "  ",
-		choices: [
-			"1. We can create a new C++ operator.",
-			"2. We can change the precedence of the C++ operator.",
-			"3. We can not change the operator templates.",
-			"4. We can change the associativity of the C++ operators.",
-		],
-		answer: "3. We can not change the operator templates.",
-	},
+	// {
+	// 	id: 91,
+	// 	title: "# Q90. Which of the following statements is valid?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: [
+	// 		"1. We can create a new C++ operator.",
+	// 		"2. We can change the precedence of the C++ operator.",
+	// 		"3. We can not change the operator templates.",
+	// 		"4. We can change the associativity of the C++ operators.",
+	// 	],
+	// 	answer: "3. We can not change the operator templates.",
+	// },
 	{
 		id: 92,
 		title: "# Q91. Which of the following is/are automatically added to every class, if we do not write our own?",
@@ -2938,21 +2931,21 @@ let ds = [
 		solution:
 			"The code uses a sliding window approach with two pointers, `left` and `right`. `left` points to the beginning of the current substring, and `right` points to the end.  It uses an `unordered_set` to keep track of the characters seen in the current substring.  The loop iterates through the string using the `right` pointer.  For each character, it checks if it is already present in the `seen` set.  If it is, it means there's a repeating character.  In this case, it removes the character at `left` from the `seen` set and moves `left` to the right until the repeating character is removed.  Then, it adds the current character to the `seen` set and updates `maxLength` to the maximum length of the current substring.  This process continues until the end of the string is reached.  Finally, `maxLength` is returned, representing the length of the longest substring without repeating characters.",
 	},
-	{
-		id: 99,
-		title: "# Q99. Given a string, check if it is a valid parentheses string.",
-		text: undefined,
-		code2: "```cpp<br>bool isValidParentheses(string s) {<br>  // Implement the logic here<br>}<br>```",
-		choices: [
-			"1. `return true;`",
-			"2. `return false;`",
-			"3. `stack<char> st;`<br>  `for (char c : s) {`<br>  `if (c == '(' || c == '{' || c == '[') {`<br>  `st.push(c);`<br>  `}` else if (c == ')' && !st.empty() && st.top() == '(') {`<br>  `st.pop();`<br>  `} else if (c == '}' && !st.empty() && st.top() == '{') {`<br>  `st.pop();`<br>  `} else if (c == ']' && !st.empty() && st.top() == '[') {`<br>  `st.pop();`<br>  `} else {`<br>  `return false;`<br>  `}`<br>  `}`<br>  `return st.empty();`",
-			"4. `if (s.size() % 2 != 0) {`<br>  `return false;`<br>  `}`<br>  `for (int i = 0; i < s.size() / 2; ++i) {`<br>  `if (s[i] != s[s.size() - i - 1]) {`<br>  `return false;`<br>  `}`<br>  `}`<br>  `return true;`",
-		],
-		answer: "3. `stack<char> st;`<br>  `for (char c : s) {`<br>  `if (c == '(' || c == '{' || c == '[') {`<br>  `st.push(c);`<br>  `}` else if (c == ')' && !st.empty() && st.top() == '(') {`<br>  `st.pop();`<br>  `} else if (c == '}' && !st.empty() && st.top() == '{') {`<br>  `st.pop();`<br>  `} else if (c == ']' && !st.empty() && st.top() == '[') {`<br>  `st.pop();`<br>  `} else {`<br>  `return false;`<br>  `}`<br>  `}`<br>  `return st.empty();`",
-		solution:
-			"The code uses a stack to keep track of the opening parentheses encountered. It iterates through the string character by character.  If an opening parenthesis is encountered, it is pushed onto the stack.  If a closing parenthesis is encountered, the code checks if the stack is not empty and if the top element of the stack is the corresponding opening parenthesis. If so, the opening parenthesis is popped from the stack.  If not, or if the stack is empty, the function returns `false`.  After processing all the characters, if the stack is empty, it means all parentheses are matched, and the function returns `true`.  Otherwise, it means there are unmatched parentheses, and the function returns `false`.",
-	},
+	// {
+	// 	id: 99,
+	// 	title: "# Q99. Given a string, check if it is a valid parentheses string.",
+	// 	text: undefined,
+	// 	code2: "```cpp<br>bool isValidParentheses(string s) {<br>  // Implement the logic here<br>}<br>```",
+	// 	choices: [
+	// 		"1. `return true;`",
+	// 		"2. `return false;`",
+	// 		"3. `stack<char> st;`<br>  `for (char c : s) {`<br>  `if (c == '(' || c == '{' || c == '[') {`<br>  `st.push(c);`<br>  `}` else if (c == ')' && !st.empty() && st.top() == '(') {`<br>  `st.pop();`<br>  `} else if (c == '}' && !st.empty() && st.top() == '{') {`<br>  `st.pop();`<br>  `} else if (c == ']' && !st.empty() && st.top() == '[') {`<br>  `st.pop();`<br>  `} else {`<br>  `return false;`<br>  `}`<br>  `}`<br>  `return st.empty();`",
+	// 		"4. `if (s.size() % 2 != 0) {`<br>  `return false;`<br>  `}`<br>  `for (int i = 0; i < s.size() / 2; ++i) {`<br>  `if (s[i] != s[s.size() - i - 1]) {`<br>  `return false;`<br>  `}`<br>  `}`<br>  `return true;`",
+	// 	],
+	// 	answer: "3. `stack<char> st;`<br>  `for (char c : s) {`<br>  `if (c == '(' || c == '{' || c == '[') {`<br>  `st.push(c);`<br>  `}` else if (c == ')' && !st.empty() && st.top() == '(') {`<br>  `st.pop();`<br>  `} else if (c == '}' && !st.empty() && st.top() == '{') {`<br>  `st.pop();`<br>  `} else if (c == ']' && !st.empty() && st.top() == '[') {`<br>  `st.pop();`<br>  `} else {`<br>  `return false;`<br>  `}`<br>  `}`<br>  `return st.empty();`",
+	// 	solution:
+	// 		"The code uses a stack to keep track of the opening parentheses encountered. It iterates through the string character by character.  If an opening parenthesis is encountered, it is pushed onto the stack.  If a closing parenthesis is encountered, the code checks if the stack is not empty and if the top element of the stack is the corresponding opening parenthesis. If so, the opening parenthesis is popped from the stack.  If not, or if the stack is empty, the function returns `false`.  After processing all the characters, if the stack is empty, it means all parentheses are matched, and the function returns `true`.  Otherwise, it means there are unmatched parentheses, and the function returns `false`.",
+	// },
 	{
 		id: 100,
 		title: "# Q100. Given a sorted array, remove duplicates in-place.",
@@ -3424,21 +3417,21 @@ let ds = [
 		solution:
 			"Merge Sort consistently maintains an average time complexity of O(n log n), making it a reliable choice for large datasets.",
 	},
-	{
-		id: 137,
-		title: "# Q137. What is the purpose of a self-balancing binary search tree?",
-		text: undefined,
-		code2: "  ",
-		choices: [
-			"1. To ensure that the tree is always balanced, even after insertions and deletions",
-			"2. To improve the efficiency of search operations",
-			"3. To prevent the tree from becoming too skewed",
-			"4. All of the above",
-		],
-		answer: "4. All of the above",
-		solution:
-			"Self-balancing binary search trees are designed to maintain a balanced structure to prevent worst-case scenarios, resulting in efficient search, insertion, and deletion operations.",
-	},
+	// {
+	// 	id: 137,
+	// 	title: "# Q137. What is the purpose of a self-balancing binary search tree?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: [
+	// 		"1. To ensure that the tree is always balanced, even after insertions and deletions",
+	// 		"2. To improve the efficiency of search operations",
+	// 		"3. To prevent the tree from becoming too skewed",
+	// 		"4. All of the above",
+	// 	],
+	// 	answer: "4. All of the above",
+	// 	solution:
+	// 		"Self-balancing binary search trees are designed to maintain a balanced structure to prevent worst-case scenarios, resulting in efficient search, insertion, and deletion operations.",
+	// },
 	{
 		id: 138,
 		title: "# Q138. What is the time complexity of deleting an element from a heap?",
