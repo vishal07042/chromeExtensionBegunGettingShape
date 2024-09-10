@@ -244,6 +244,7 @@ const DragDrop2 = () => {
         const isCorrect = answer.trim() === currentQuestion.correctAnswer.trim();
         setFeedback(isCorrect ? 'Correct! Great job!' : 'Incorrect. Try again.');
         console.log(`Answer is ${isCorrect ? "correct" : "incorrect"}`);
+        console.log(`Correct answer: ${currentQuestion.correctAnswer}`);
     };
 
     const nextQuestion = () => {
@@ -253,7 +254,12 @@ const DragDrop2 = () => {
         setFeedback('');
         console.log(`New question index: ${currentQuestionIndex}`);
     };
-
+    const resetQuiz = () => {
+        setOptions(quizQuestions[currentQuestionIndex].options);
+        setAnswer('');
+        setFeedback('');
+        console.log(`Current question reset to its default state.`);
+    };
     return (
         <div className="p-4 max-w-md mx-auto bg-gray-800 text-white rounded-xl shadow-md my-5"> {/* Updated background to dark */}
             <h2 className="text-xl font-bold mb-4">DSA Quiz: Question {currentQuestion.id}</h2>
@@ -293,6 +299,7 @@ const DragDrop2 = () => {
                 >
                     Check Answer
                 </button>
+                <button onClick={resetQuiz}>reset quiz</button>
                 <button
                     onClick={nextQuestion}
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
