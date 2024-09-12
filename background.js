@@ -3317,16 +3317,16 @@ let ds = [
 		solution:
 			"The maximum (or minimum) element in a heap is always located at the root, making it directly accessible in constant time.",
 	},
-	{
-		id: 129,
-		title: "# Q129. What is the time complexity of deleting an element from the end of a linked list?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. O(n)", "2. O(1)", "3. O(log n)", "4. O(n log n)"],
-		answer: "1. O(n)",
-		solution:
-			"Deleting an element from the end of a linked list requires iterating through the list until the second-to-last node is reached, leading to linear time complexity.",
-	},
+	// {
+	// 	id: 129,
+	// 	title: "# Q129. What is the time complexity of deleting an element from the end of a linked list?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: ["1. O(n)", "2. O(1)", "3. O(log n)", "4. O(n log n)"],
+	// 	answer: "1. O(n)",
+	// 	solution:
+	// 		"Deleting an element from the end of a linked list requires iterating through the list until the second-to-last node is reached, leading to linear time complexity.",
+	// },
 	{
 		id: 130,
 		title: "# Q130. Which of the following is NOT a valid binary tree traversal method?",

@@ -170,8 +170,17 @@ import React, { useState, useEffect } from 'react';
 import '../index.css';
 import dragDropQuestions from './DropQuestions1.json';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
+// import hljs from 'highlight.js';
 
+import hljs from 'highlight.js/lib/core';
+
+import cpp from 'highlight.js/lib/languages/cpp';
+
+// Then register the languages you need
+
+hljs.registerLanguage('cpp', cpp);
 const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
+    hljs.registerLanguage('cpp', cpp);
     const [currentItems, setCurrentItems] = useState(items);
     const [isCorrect, setIsCorrect] = useState(null);
     const [draggingIndex, setDraggingIndex] = useState(null);
@@ -222,6 +231,7 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
             <div>
                 <ul className="space-y-2">
                     {currentItems.map((item, index) => (
+                       
                         <li
                             key={`${item}-${index}`} // Ensure the key is unique
                             draggable
@@ -231,8 +241,13 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                             onDragEnd={onDragEnd}
                             className={`flex items-center p-2 m-2 bg-gray-100 text-black text-2xl rounded cursor-move ${draggingIndex === index ? 'dragging' : ''} ${dragOverIndex === index ? 'drag-over' : ''}`}
                         >
+                            <pre>
+                                <code className="language-cpp">
                             {item}
+                                </code>
+                            </pre>
                         </li>
+                       
                     ))}
                 </ul>
             </div>
@@ -251,7 +266,7 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                     Show Hint
                 </button>
                 {hintCount > 0 && (
-                    <div className="mt-2 p-2 bg-yellow-100 rounded">
+                    <div className="mt-2 p-2 m-2 text-black text-2xl bg-yellow-400 rounded">
                         {question.hints.slice(0, hintCount).map((hint, index) => (
                             <p key={index} className="text-sm">{Object.values(hint)[0]}</p>
                         ))}
