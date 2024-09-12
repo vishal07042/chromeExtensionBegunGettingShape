@@ -70,19 +70,19 @@ let cpp = [
 		choices: ["1. `?:`", "2. `new`", "3. `::`", "4. `.`"],
 		answer: "2. `new`",
 	},
-	{
-		id: 8,
-		title: "# Q8. Which of the following shows the contents of the vector pointed by v1 and v2 after running this code?",
-		text: undefined,
-		code2: "```cpp<br> std:: vector<int> *v1 = new std::vector<int>({1,2,3});<br> std:: vector<int> *v2;<br> v2=v1;<br> v1->push_back(4);<br> v2->push_back(5);<br> ",
-		choices: [
-			"1. `*v1:{1,2,3,4}; *v2:{5};`",
-			"2. `*v1:{1,2,3,4,5}; *v2:{1,2,3,4,5};`",
-			"3. Error",
-			"4. `*v1:{1,2,3,4}; *v2:{1,2,3,5};`",
-		],
-		answer: "2. `*v1:{1,2,3,4,5}; *v2:{1,2,3,4,5};`",
-	},
+	// {
+	// 	id: 8,
+	// 	title: "# Q8. Which of the following shows the contents of the vector pointed by v1 and v2 after running this code?",
+	// 	text: undefined,
+	// 	code2: "```cpp<br> std:: vector<int> *v1 = new std::vector<int>({1,2,3});<br> std:: vector<int> *v2;<br> v2=v1;<br> v1->push_back(4);<br> v2->push_back(5);<br> ",
+	// 	choices: [
+	// 		"1. `*v1:{1,2,3,4}; *v2:{5};`",
+	// 		"2. `*v1:{1,2,3,4,5}; *v2:{1,2,3,4,5};`",
+	// 		"3. Error",
+	// 		"4. `*v1:{1,2,3,4}; *v2:{1,2,3,5};`",
+	// 	],
+	// 	answer: "2. `*v1:{1,2,3,4,5}; *v2:{1,2,3,4,5};`",
+	// },
 	{
 		id: 9,
 		title: "# Q9. Which of the following is not a difference between a class and a struct?",
@@ -96,14 +96,14 @@ let cpp = [
 		],
 		answer: "4. Template type parameters can be declared with classes, but not with the struct keyword.",
 	},
-	{
-		id: 10,
-		title: "# Q10. Suppose you need to keep a data struct with permission to access some resource based on the days of the week, but you can't use a bool variable for each day. You need to use one bit per day of the week. Which of the following is a correct implementation of a structure with bit fields for this application?",
-		text: undefined,
-		code2: "```cpp<br> typedef struct {<br>     int sunday:1;<br>     int monday:1;<br>     // more days<br>     int friday:1;<br>     int saturday:1;<br> } weekdays;<br> ```cpp<br> typedef char[7]: weekdays;<br> ```cpp<br> typedef struct {<br>     bit sunday:1;<br>     bit monday:1;<br>     // more days<br>     bit friday:1;<br>     bit saturday:1;<br> } weekdays;<br> <br> ```cpp<br> typedef struct {<br>     bit sunday;<br>     bit monday;<br>     // more days<br>     bit friday;<br>     bit saturday;<br> } weekdays;<br> ",
-		choices: ["1. A", "2. B", "3. C", "4. D"],
-		answer: "1. A",
-	},
+	// {
+	// 	id: 10,
+	// 	title: "# Q10. Suppose you need to keep a data struct with permission to access some resource based on the days of the week, but you can't use a bool variable for each day. You need to use one bit per day of the week. Which of the following is a correct implementation of a structure with bit fields for this application?",
+	// 	text: undefined,
+	// 	code2: "```cpp<br> typedef struct {<br>     int sunday:1;<br>     int monday:1;<br>     // more days<br>     int friday:1;<br>     int saturday:1;<br> } weekdays;<br> ```cpp<br> typedef char[7]: weekdays;<br> ```cpp<br> typedef struct {<br>     bit sunday:1;<br>     bit monday:1;<br>     // more days<br>     bit friday:1;<br>     bit saturday:1;<br> } weekdays;<br> <br> ```cpp<br> typedef struct {<br>     bit sunday;<br>     bit monday;<br>     // more days<br>     bit friday;<br>     bit saturday;<br> } weekdays;<br> ",
+	// 	choices: ["1. A", "2. B", "3. C", "4. D"],
+	// 	answer: "1. A",
+	// },
 	{
 		id: 11,
 		title: "# Q11. What is an lvalue?",
@@ -504,19 +504,19 @@ let cpp = [
 		],
 		answer: "3. Part A executes because `~x` is not zero, meaning true.",
 	},
-	{
-		id: 46,
-		title: "# Q45. What would be the output of this code?",
-		text: undefined,
-		code2: "```cpp<br> int32_t nums[3]={2,4,3};<br> std::cout << ( nums[0] << nums[1] << nums[2] );<br> ",
-		choices: [
-			"1. The output is the addresses of `nums[0]`, `nums[1]`, and `nums[2]`, in that order, with no spaces.",
-			"2. 256",
-			"3. `0`",
-			"4. `243`",
-		],
-		answer: "2. 256",
-	},
+	// {
+	// 	id: 46,
+	// 	title: "# Q45. What would be the output of this code?",
+	// 	text: undefined,
+	// 	code2: "```cpp<br> int32_t nums[3]={2,4,3};<br> std::cout << ( nums[0] << nums[1] << nums[2] );<br> ",
+	// 	choices: [
+	// 		"1. The output is the addresses of `nums[0]`, `nums[1]`, and `nums[2]`, in that order, with no spaces.",
+	// 		"2. 256",
+	// 		"3. `0`",
+	// 		"4. `243`",
+	// 	],
+	// 	answer: "2. 256",
+	// },
 	{
 		id: 47,
 		title: "# Q46. What is the output of this code?",
@@ -1111,14 +1111,14 @@ let cpp = [
 		choices: ["1. -3", "2. 7", "3. 13", "4. 3"],
 		answer: "2. 7",
 	},
-	{
-		id: 100,
-		title: "# Q99. Once you are done writing to a file, what method will you call on the `ofstream` to notify the operating system?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. printout()", "2. close()", "3. destroy()", "4. flush()"],
-		answer: "2. close()",
-	},
+	// {
+	// 	id: 100,
+	// 	title: "# Q99. Once you are done writing to a file, what method will you call on the `ofstream` to notify the operating system?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: ["1. printout()", "2. close()", "3. destroy()", "4. flush()"],
+	// 	answer: "2. close()",
+	// },
 	{
 		id: 101,
 		title: "# Q100. Which choice is not a C++ keyword?",
@@ -1177,19 +1177,19 @@ let cpp = [
 		],
 		answer: "2. `The ternary operator is not overloadable.`",
 	},
-	{
-		id: 107,
-		title: "# Q106. Which class hierarchy represents an example of multilevel inheritance?",
-		text: undefined,
-		code2: "  ",
-		choices: [
-			"1. In the same program, at different points, a given class derives individually from more than one different class.",
-			"2. A first-class derives directly, at the same time, from a second and third class.",
-			"3. In the same program, at different points, a given class derives individually from more than two different classes.",
-			"4. A first classderives from a second class, and that second class is already derived from a third class",
-		],
-		answer: "3. In the same program, at different points, a given class derives individually from more than two different classes.",
-	},
+	// {
+	// 	id: 107,
+	// 	title: "# Q106. Which class hierarchy represents an example of multilevel inheritance?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: [
+	// 		"1. In the same program, at different points, a given class derives individually from more than one different class.",
+	// 		"2. A first-class derives directly, at the same time, from a second and third class.",
+	// 		"3. In the same program, at different points, a given class derives individually from more than two different classes.",
+	// 		"4. A first classderives from a second class, and that second class is already derived from a third class",
+	// 	],
+	// 	answer: "3. In the same program, at different points, a given class derives individually from more than two different classes.",
+	// },
 	{
 		id: 108,
 		title: "# Q107. Which of the following is the correct syntax to print the message in C++ language?",
@@ -1307,14 +1307,14 @@ let cpp = [
 		],
 		answer: "1. 1234987654",
 	},
-	{
-		id: 117,
-		title: "# Q116. Consider the following code segment. Which statement/statements is/are correct?",
-		text: undefined,
-		code2: "```cpp<br> int i = 5;<br> const int *p = &i;<br> int * const q = &i;<br> int const *r = &i;<br> int const * const s = &i;<br> *p = 10; //STMT-1<br> *q = 10; //STMT-2<br> *r = 10; //STMT-3<br> *s = 10; //STMT-4<br> ",
-		choices: ["1. STMT-1", "2. STMT-2", "3. STMT-3", "4. STMT-4"],
-		answer: "2. STMT-2",
-	},
+	// {
+	// 	id: 117,
+	// 	title: "# Q116. Consider the following code segment. Which statement/statements is/are correct?",
+	// 	text: undefined,
+	// 	code2: "```cpp<br> int i = 5;<br> const int *p = &i;<br> int * const q = &i;<br> int const *r = &i;<br> int const * const s = &i;<br> *p = 10; //STMT-1<br> *q = 10; //STMT-2<br> *r = 10; //STMT-3<br> *s = 10; //STMT-4<br> ",
+	// 	choices: ["1. STMT-1", "2. STMT-2", "3. STMT-3", "4. STMT-4"],
+	// 	answer: "2. STMT-2",
+	// },
 	{
 		id: 118,
 		title: "# Q117. Consider the following program. What will be the output/error(s)?",
@@ -1613,14 +1613,14 @@ let cpp = [
 		choices: ["1. while", "2. for", "3. do", "4. All of the above"],
 		answer: "2. for",
 	},
-	{
-		id: 145,
-		title: "# Q144.Which keyword is used to define the macros in C++?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. #macro", "2. #define", "3. macro", "4. keyword"],
-		answer: "2. #define",
-	},
+	// {
+	// 	id: 145,
+	// 	title: "# Q144.Which keyword is used to define the macros in C++?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: ["1. #macro", "2. #define", "3. macro", "4. keyword"],
+	// 	answer: "2. #define",
+	// },
 	{
 		id: 146,
 		title: "# Q145.Which of the following operators should be preferred to overload as a global function rather than a member method?",
@@ -1634,19 +1634,19 @@ let cpp = [
 		],
 		answer: "2. Comparison Operator",
 	},
-	{
-		id: 147,
-		title: "# Q146.How can we restrict the dynamic allocation of objects of a class using new?",
-		text: undefined,
-		code2: "  ",
-		choices: [
-			"1. By overloading new operator",
-			"2. By making an empty private new operator.",
-			"3. By making an empty private new and new[] operators",
-			"4. By overloading new operators and new[] operators",
-		],
-		answer: "3. By making an empty private new and new[] operators",
-	},
+	// {
+	// 	id: 147,
+	// 	title: "# Q146.How can we restrict the dynamic allocation of objects of a class using new?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: [
+	// 		"1. By overloading new operator",
+	// 		"2. By making an empty private new operator.",
+	// 		"3. By making an empty private new and new[] operators",
+	// 		"4. By overloading new operators and new[] operators",
+	// 	],
+	// 	answer: "3. By making an empty private new and new[] operators",
+	// },
 	{
 		id: 148,
 		title: "# Q147.What is the time complexity of the below code?",
@@ -2291,13 +2291,13 @@ let ds = [
 		choices: ["1. O(n)", "2. O(n log n)", "3. O(n^2)", "4. O(n^3)"],
 		answer: "2. O(n log n)",
 	},
-	{
-		id: 58,
-		title: "# Q58. What is the worst-case time complexity of Heap Sort?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. O(n)", "2. O(n log n)", "3. O(n^2)"],
-	},
+	// {
+	// 	id: 58,
+	// 	title: "# Q58. What is the worst-case time complexity of Heap Sort?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: ["1. O(n)", "2. O(n log n)", "3. O(n^2)"],
+	// },
 
 	{
 		id: 51,
@@ -2539,21 +2539,21 @@ let ds = [
 		solution:
 			"A perfect binary tree has all levels completely filled with nodes. It's a specific type of complete binary tree where every node, except for the leaves, has exactly two children. This structure provides maximum space utilization and efficiency for certain algorithms like heap sort.",
 	},
-	{
-		id: 69,
-		title: "# Q69. What is a balanced binary tree?",
-		text: undefined,
-		code2: "  ",
-		choices: [
-			"1. A binary tree where the left and right subtrees have the same height.",
-			"2. A binary tree where the left subtree is a balanced binary tree and the right subtree is a balanced binary tree.",
-			"3. A binary tree where all nodes have a maximum of two children.",
-			"4. A binary tree where the height of the left subtree is at most one greater than the height of the right subtree, or vice versa.",
-		],
-		answer: "4. A binary tree where the height of the left subtree is at most one greater than the height of the right subtree, or vice versa.",
-		solution:
-			"A balanced binary tree is a binary tree where the difference in heights between the left and right subtrees of any node is at most one. This ensures that the tree is relatively 'well-shaped' and prevents it from becoming too skewed, which could lead to poor performance for search and insertion operations. Common examples of self-balancing binary trees include AVL trees and red-black trees.",
-	},
+	// {
+	// 	id: 69,
+	// 	title: "# Q69. What is a balanced binary tree?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: [
+	// 		"1. A binary tree where the left and right subtrees have the same height.",
+	// 		"2. A binary tree where the left subtree is a balanced binary tree and the right subtree is a balanced binary tree.",
+	// 		"3. A binary tree where all nodes have a maximum of two children.",
+	// 		"4. A binary tree where the height of the left subtree is at most one greater than the height of the right subtree, or vice versa.",
+	// 	],
+	// 	answer: "4. A binary tree where the height of the left subtree is at most one greater than the height of the right subtree, or vice versa.",
+	// 	solution:
+	// 		"A balanced binary tree is a binary tree where the difference in heights between the left and right subtrees of any node is at most one. This ensures that the tree is relatively 'well-shaped' and prevents it from becoming too skewed, which could lead to poor performance for search and insertion operations. Common examples of self-balancing binary trees include AVL trees and red-black trees.",
+	// },
 	{
 		id: 70,
 		title: "# Q70. What is the purpose of a self-balancing binary search tree?",
@@ -3127,16 +3127,16 @@ let ds = [
 		solution:
 			"In the best-case scenario, when the array is already sorted, bubble sort will only need to iterate through the array once to verify its sorted state. This results in a time complexity of O(n).",
 	},
-	{
-		id: 114,
-		title: "# Q114. What is the time complexity of searching for a specific element in a sorted array using binary search?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. O(n)", "2. O(log n)", "3. O(1)", "4. O(n^2)"],
-		answer: "2. O(log n)",
-		solution:
-			"Binary search efficiently searches a sorted array by repeatedly dividing the search space in half. This logarithmic time complexity makes it significantly faster than linear search, especially for large datasets.",
-	},
+	// {
+	// 	id: 114,
+	// 	title: "# Q114. What is the time complexity of searching for a specific element in a sorted array using binary search?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: ["1. O(n)", "2. O(log n)", "3. O(1)", "4. O(n^2)"],
+	// 	answer: "2. O(log n)",
+	// 	solution:
+	// 		"Binary search efficiently searches a sorted array by repeatedly dividing the search space in half. This logarithmic time complexity makes it significantly faster than linear search, especially for large datasets.",
+	// },
 	{
 		id: 115,
 		title: "# Q115. Which of the following is a common application of a trie (prefix tree)?",
@@ -3497,16 +3497,16 @@ let ds = [
 		solution:
 			"BFS explores a graph level by level, making it ideal for finding the shortest path in unweighted graphs.  It systematically explores all neighbors at a current level before moving to the next level.",
 	},
-	{
-		id: 143,
-		title: "# Q143. What is the time complexity of sorting an array using insertion sort in the best-case scenario?",
-		text: undefined,
-		code2: "  ",
-		choices: ["1. O(n)", "2. O(n log n)", "3. O(n^2)", "4. O(1)"],
-		answer: "1. O(n)",
-		solution:
-			"In the best-case scenario, when the array is already sorted, insertion sort will only need to iterate through the array once, making its time complexity linear.",
-	},
+	// {
+	// 	id: 143,
+	// 	title: "# Q143. What is the time complexity of sorting an array using insertion sort in the best-case scenario?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: ["1. O(n)", "2. O(n log n)", "3. O(n^2)", "4. O(1)"],
+	// 	answer: "1. O(n)",
+	// 	solution:
+	// 		"In the best-case scenario, when the array is already sorted, insertion sort will only need to iterate through the array once, making its time complexity linear.",
+	// },
 	{
 		id: 144,
 		title: "# Q144. Which of the following is NOT a common application of a trie (prefix tree)?",

@@ -1,0 +1,172 @@
+{
+    "quizData": [
+        [
+            {
+                "id": 1,
+                "QuestionNo.": "1",
+                "question": "Given a string representing a number, return the closest number that is a palindrome.",
+                "correctAnswer": "Some other pattern"
+            },
+            {
+                "id": 2,
+                "QuestionNo.": "1",
+                "question": "Given an array of numbers in the range 1 to n, find all the numbers that are missing in the array.",
+                "correctAnswer": "Cyclic Sort"
+            },
+            {
+                "id": 3,
+                "QuestionNo.": "1",
+                "question": "Given a set of numbers, find the first 5 missing positive numbers.",
+                "correctAnswer": "Some other pattern"
+            },
+            {
+                "id": 4,
+                "QuestionNo.": "1",
+                "question": "Given a set, return the number of subsets with the sum equal to 10.",
+                "correctAnswer": "Some other pattern"
+            },
+            {
+                "id": 5,
+                "QuestionNo.": "1",
+                "question": "Given an array of integers, find two numbers such that they add up to a specific target number.",
+                "correctAnswer": "Two Pointers"
+            }
+        ],
+        [
+            {
+                "id": 6,
+                "QuestionNo.": "2",
+                "question": "Given a binary tree, find the maximum depth of the tree.",
+                "correctAnswer": "Depth-First Search"
+            },
+            {
+                "id": 7,
+                "QuestionNo.": "2",
+                "question": "Given a string, find the length of the longest substring without repeating characters.",
+                "correctAnswer": "Sliding Window"
+            },
+            {
+                "id": 8,
+                "QuestionNo.": "2",
+                "question": "Given an array of integers, find the contiguous subarray with the largest sum.",
+                "correctAnswer": "Kadane's Algorithm"
+            }
+        ],
+        [
+            {
+                "id": 9,
+                "QuestionNo.": "3",
+                "question": "Implement a function to perform binary search on a sorted array.",
+                "correctAnswer": "Binary Search"
+            },
+            {
+                "id": 10,
+                "QuestionNo.": "3",
+                "question": "Given a list of intervals, merge overlapping intervals.",
+                "correctAnswer": "Interval Merging"
+            },
+            {
+                "id": 11,
+                "QuestionNo.": "3",
+                "question": "Find the longest common prefix string amongst an array of strings.",
+                "correctAnswer": "String Manipulation"
+            },
+            {
+                "id": 12,
+                "QuestionNo.": "3",
+                "question": "Given a linked list, determine if it has a cycle in it.",
+                "correctAnswer": "Floyd's Cycle Detection"
+            },
+            {
+                "id": 13,
+                "QuestionNo.": "3",
+                "question": "Find the intersection of two arrays.",
+                "correctAnswer": "Set Intersection"
+            }
+        ],
+        [
+            {
+                "id": 14,
+                "QuestionNo.": "4",
+                "question": "Given a string, check if it is a permutation of a palindrome.",
+                "correctAnswer": "Character Count"
+            },
+            {
+                "id": 15,
+                "QuestionNo.": "4",
+                "question": "Implement a queue using stacks.",
+                "correctAnswer": "Stack Operations"
+            },
+            {
+                "id": 16,
+                "QuestionNo.": "4",
+                "question": "Given a matrix, rotate it 90 degrees clockwise.",
+                "correctAnswer": "Matrix Manipulation"
+            },
+            {
+                "id": 17,
+                "QuestionNo.": "4",
+                "question": "Find the first non-repeating character in a string.",
+                "correctAnswer": "Hash Map"
+            },
+            {
+                "id": 18,
+                "QuestionNo.": "4",
+                "question": "Given an array, find the maximum product of two integers.",
+                "correctAnswer": "Sorting"
+            }
+        ],
+        [
+            {
+                "id": 19,
+                "QuestionNo.": "5",
+                "question": "Given a string, reverse the vowels in it.",
+                "correctAnswer": "Two Pointers"
+            },
+            {
+                "id": 20,
+                "QuestionNo.": "5",
+                "question": "Find the longest substring with at most two distinct characters.",
+                "correctAnswer": "Sliding Window"
+            },
+            {
+                "id": 21,
+                "QuestionNo.": "5",
+                "question": "Given a binary tree, serialize and deserialize it.",
+                "correctAnswer": "Tree Traversal"
+            },
+            {
+                "id": 22,
+                "QuestionNo.": "5",
+                "question": "Determine if a Sudoku is valid.",
+                "correctAnswer": "Backtracking"
+            },
+            {
+                "id": 23,
+                "QuestionNo.": "5",
+                "question": "Find the minimum window substring.",
+                "correctAnswer": "Sliding Window"
+            }
+        ],
+        [
+            {
+                "id": 24,
+                "QuestionNo.": "6",
+                "question": "Given an array of integers, return indices of the two numbers such that they add up to a specific target.",
+                "correctAnswer": "Hash Map"
+            },
+            {
+                "id": 25,
+                "QuestionNo.": "6",
+                "question": "Find the peak element in an array.",
+                "correctAnswer": "Binary Search"
+            },
+            {
+                "id": 26,
+                "QuestionNo.": "6",
+                "question": "Given a string, check if it is an anagram of another string.",
+                "correctAnswer": "Character Count"
+            }
+        ]
+    ]
+}
