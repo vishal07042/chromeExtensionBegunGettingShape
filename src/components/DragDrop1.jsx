@@ -266,7 +266,7 @@ const DragDropQuestion = ({ question, items, onComplete, onNext }) => {
                     Show Hint
                 </button>
                 {hintCount > 0 && (
-                    <div className="mt-2 p-2 m-2 text-black text-2xl bg-yellow-400 rounded">
+                    <div className="mt-2 p-2 m-2 text-black text-[24px] bg-yellow-400 rounded">
                         {question.hints.slice(0, hintCount).map((hint, index) => (
                             <p key={index} className="text-sm">{Object.values(hint)[0]}</p>
                         ))}
