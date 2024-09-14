@@ -28,19 +28,19 @@ let cpp = [
 		choices: ["1. 7 bits.", "2. 25 bytes.", "3. 1 bit.", "4. 1 byte."],
 		answer: "4. 1 byte.",
 	},
-	{
-		id: 4,
-		title: "# Q4. What are the vectors v1 and v2 after executing the code?",
-		text: undefined,
-		code2: "```cpp<br> std::vector<int> v1{1,2,3},v2;<br> v2=v1;<br> v1.push_back(4);<br> v2.push_back(5);<br> ",
-		choices: [
-			"1. Error",
-			"2. v1:{1,2,3,4}; v2:{5};",
-			"3. v1:{1,2,3,4,5}; v2:{1,2,3,4,5};",
-			"4. v1:{1,2,3,4}; v2:{1,2,3,5};",
-		],
-		answer: "4. v1:{1,2,3,4}; v2:{1,2,3,5};",
-	},
+	// {
+	// 	id: 4,
+	// 	title: "# Q4. What are the vectors v1 and v2 after executing the code?",
+	// 	text: undefined,
+	// 	code2: "```cpp<br> std::vector<int> v1{1,2,3},v2;<br> v2=v1;<br> v1.push_back(4);<br> v2.push_back(5);<br> ",
+	// 	choices: [
+	// 		"1. Error",
+	// 		"2. v1:{1,2,3,4}; v2:{5};",
+	// 		"3. v1:{1,2,3,4,5}; v2:{1,2,3,4,5};",
+	// 		"4. v1:{1,2,3,4}; v2:{1,2,3,5};",
+	// 	],
+	// 	answer: "4. v1:{1,2,3,4}; v2:{1,2,3,5};",
+	// },
 	{
 		id: 5,
 		title: "# Q5. Which of the following is a true statement about the difference between pointers and iterators?",
@@ -255,14 +255,14 @@ let cpp = [
 		],
 		answer: "2. The first is the initialization block, the second is the condition to iterate, and the third is the increment block.",
 	},
-	{
-		id: 23,
-		title: "# Q23. What does this code print?",
-		text: undefined,
-		code2: '```cpp<br> int i = 0;<br> printf("%d", i++);<br> printf("%d", i--);<br> printf("%d", ++i);<br> printf("%d", --i);<br> ',
-		choices: ["1. 0,1,1,0", "2. 0,1,0,1", "3. 0,0,1,0", "4. 1,0,1,0"],
-		answer: "1. 0,1,1,0",
-	},
+	// {
+	// 	id: 23,
+	// 	title: "# Q23. What does this code print?",
+	// 	text: undefined,
+	// 	code2: '```cpp<br> int i = 0;<br> printf("%d", i++);<br> printf("%d", i--);<br> printf("%d", ++i);<br> printf("%d", --i);<br> ',
+	// 	choices: ["1. 0,1,1,0", "2. 0,1,0,1", "3. 0,0,1,0", "4. 1,0,1,0"],
+	// 	answer: "1. 0,1,1,0",
+	// },
 	{
 		id: 24,
 		title: "# Q24. What is true about the variable named `ptr`?",
@@ -2257,19 +2257,19 @@ let ds = [
 		choices: ["1. O(n)", "2. O(1)", "3. O(log n)", "4. O(n log n)"],
 		answer: "2. O(1)",
 	},
-	{
-		id: 55,
-		title: "# Q55. Which of the following is NOT a sorting algorithm?",
-		text: undefined,
-		code2: "  ",
-		choices: [
-			"1. Merge Sort",
-			"2. Quick Sort",
-			"3. Binary Search",
-			"4. Insertion Sort",
-		],
-		answer: "3. Binary Search",
-	},
+	// {
+	// 	id: 55,
+	// 	title: "# Q55. Which of the following is NOT a sorting algorithm?",
+	// 	text: undefined,
+	// 	code2: "  ",
+	// 	choices: [
+	// 		"1. Merge Sort",
+	// 		"2. Quick Sort",
+	// 		"3. Binary Search",
+	// 		"4. Insertion Sort",
+	// 	],
+	// 	answer: "3. Binary Search",
+	// },
 	{
 		id: 56,
 		title: "# Q56. Which sorting algorithm is generally considered the most efficient for large datasets?",
@@ -3821,8 +3821,324 @@ let dsa3 = [
 		solution:
 			"```cpp<br>int countWords(string s) {<br>  int count = 1;<br>  for (char c : s) {<br>    if (c == ' ') {<br>      count++;<br>    }<br>  }<br>  return count;<br>}<br>```<br><br>This code counts the number of words in a string.  It initializes a variable `count` to 1 (assuming there is at least one word).  It then iterates through the string and checks if each character is a space.  If it is, it increments `count`.  After iterating through the entire string, `count` will contain the number of words, which is then returned.",
 	},
-];
 
+	{
+		id: 179,
+		title: "# Q179. Given an array of integers, find the length of the longest subarray with a sum equal to 0.",
+		text: undefined,
+		code2: "int longestZeroSumSubarray(vector<int>& nums) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. unordered_map<int, int> prefixSumIndices; int sum = 0, maxLength = 0; for (int i = 0; i < nums.size(); i++) { sum += nums[i]; if (sum == 0) { maxLength = i + 1; } if (prefixSumIndices.find(sum) != prefixSumIndices.end()) { maxLength = max(maxLength, i - prefixSumIndices[sum]); } else { prefixSumIndices[sum] = i; } } return maxLength;",
+			"4. return nums.length();",
+		],
+		answer: "3. unordered_map<int, int> prefixSumIndices; int sum = 0, maxLength = 0; for (int i = 0; i < nums.size(); i++) { sum += nums[i]; if (sum == 0) { maxLength = i + 1; } if (prefixSumIndices.find(sum) != prefixSumIndices.end()) { maxLength = max(maxLength, i - prefixSumIndices[sum]); } else { prefixSumIndices[sum] = i; } } return maxLength;",
+		solution:
+			"int longestZeroSumSubarray(vector<int>& nums) { unordered_map<int, int> prefixSumIndices; int sum = 0, maxLength = 0; for (int i = 0; i < nums.size(); i++) { sum += nums[i]; if (sum == 0) { maxLength = i + 1; } if (prefixSumIndices.find(sum) != prefixSumIndices.end()) { maxLength = max(maxLength, i - prefixSumIndices[sum]); } else { prefixSumIndices[sum] = i; } } return maxLength; }",
+	},
+	{
+		id: 180,
+		title: "# Q180. Given a binary tree, return the level order traversal of its nodes' values.",
+		text: undefined,
+		code2: "vector<vector<int>> levelOrder(TreeNode* root) {  // Implement the logic here }",
+		choices: [
+			"1. return {};",
+			"2. return {{}};",
+			"3. vector<vector<int>> result; if (!root) return result; queue<TreeNode*> q; q.push(root); while (!q.empty()) { int size = q.size(); vector<int> level; for (int i = 0; i < size; i++) { TreeNode* node = q.front(); q.pop(); level.push_back(node->val); if (node->left) q.push(node->left); if (node->right) q.push(node->right); } result.push_back(level); } return result;",
+			"4. return root;",
+		],
+		answer: "3. vector<vector<int>> result; if (!root) return result; queue<TreeNode*> q; q.push(root); while (!q.empty()) { int size = q.size(); vector<int> level; for (int i = 0; i < size; i++) { TreeNode* node = q.front(); q.pop(); level.push_back(node->val); if (node->left) q.push(node->left); if (node->right) q.push(node->right); } result.push_back(level); } return result;",
+		solution:
+			"vector<vector<int>> levelOrder(TreeNode* root) { vector<vector<int>> result; if (!root) return result; queue<TreeNode*> q; q.push(root); while (!q.empty()) { int size = q.size(); vector<int> level; for (int i = 0; i < size; i++) { TreeNode* node = q.front(); q.pop(); level.push_back(node->val); if (node->left) q.push(node->left); if (node->right) q.push(node->right); } result.push_back(level); } return result; }",
+	},
+	{
+		id: 181,
+		title: "# Q181. Given a string, find the length of the longest substring without repeating characters.",
+		text: undefined,
+		code2: "int lengthOfLongestSubstring(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return s.size();",
+			"3. unordered_map<char, int> charIndex; int maxLength = 0, start = 0; for (int i = 0; i < s.size(); i++) { if (charIndex.find(s[i]) != charIndex.end() && charIndex[s[i]] >= start) { start = charIndex[s[i]] + 1; } charIndex[s[i]] = i; maxLength = max(maxLength, i - start + 1); } return maxLength;",
+			"4. return s.length();",
+		],
+		answer: "3. unordered_map<char, int> charIndex; int maxLength = 0, start = 0; for (int i = 0; i < s.size(); i++) { if (charIndex.find(s[i]) != charIndex.end() && charIndex[s[i]] >= start) { start = charIndex[s[i]] + 1; } charIndex[s[i]] = i; maxLength = max(maxLength, i - start + 1); } return maxLength;",
+		solution:
+			"int lengthOfLongestSubstring(string s) { unordered_map<char, int> charIndex; int maxLength = 0, start = 0; for (int i = 0; i < s.size(); i++) { if (charIndex.find(s[i]) != charIndex.end() && charIndex[s[i]] >= start) { start = charIndex[s[i]] + 1; } charIndex[s[i]] = i; maxLength = max(maxLength, i - start + 1); } return maxLength; }",
+	},
+	{
+		id: 182,
+		title: "# Q182. Given an array of integers, return the maximum product of three numbers in the array.",
+		text: undefined,
+		code2: "int maximumProduct(vector<int>& nums) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. sort(nums.begin(), nums.end()); int n = nums.size(); return max(nums[n-1] * nums[n-2] * nums[n-3], nums[0] * nums[1] * nums[n-1]);",
+			"4. return nums.length();",
+		],
+		answer: "3. sort(nums.begin(), nums.end()); int n = nums.size(); return max(nums[n-1] * nums[n-2] * nums[n-3], nums[0] * nums[1] * nums[n-1]);",
+		solution:
+			"int maximumProduct(vector<int>& nums) { sort(nums.begin(), nums.end()); int n = nums.size(); return max(nums[n-1] * nums[n-2] * nums[n-3], nums[0] * nums[1] * nums[n-1]); }",
+	},
+	{
+		id: 183,
+		title: "# Q183. Given a string, return the longest palindromic substring.",
+		text: undefined,
+		code2: "string longestPalindrome(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return '';",
+			"2. return s;",
+			"3. int n = s.size(); if (n == 0) return ''; vector<vector<bool>> dp(n, vector<bool>(n, false)); int maxLength = 1, start = 0; for (int i = 0; i < n; i++) { dp[i][i] = true; } for (int i = 0; i < n - 1; i++) { if (s[i] == s[i + 1]) { dp[i][i + 1] = true; start = i; maxLength = 2; } } for (int k = 3; k <= n; k++) { for (int i = 0; i < n - k + 1; i++) { int j = i + k - 1; if (dp[i + 1][j - 1] && s[i] == s[j]) { dp[i][j] = true; if (k > maxLength) { start = i; maxLength = k; } } } } return s.substr(start, maxLength);",
+			"4. return s.length();",
+		],
+		answer: "3. int n = s.size(); if (n == 0) return ''; vector<vector<bool>> dp(n, vector<bool>(n, false)); int maxLength = 1, start = 0; for (int i = 0; i < n; i++) { dp[i][i] = true; } for (int i = 0; i < n - 1; i++) { if (s[i] == s[i + 1]) { dp[i][i + 1] = true; start = i; maxLength = 2; } } for (int k = 3; k <= n; k++) { for (int i = 0; i < n - k + 1; i++) { int j = i + k - 1; if (dp[i + 1][j - 1] && s[i] == s[j]) { dp[i][j] = true; if (k > maxLength) { start = i; maxLength = k; } } } } return s.substr(start, maxLength);",
+		solution:
+			"string longestPalindrome(string s) { int n = s.size(); if (n == 0) return ''; vector<vector<bool>> dp(n, vector<bool>(n, false)); int maxLength = 1, start = 0; for (int i = 0; i < n; i++) { dp[i][i] = true; } for (int i = 0; i < n - 1; i++) { if (s[i] == s[i + 1]) { dp[i][i + 1] = true; start = i; maxLength = 2; } } for (int k = 3; k <= n; k++) { for (int i = 0; i < n - k + 1; i++) { int j = i + k - 1; if (dp[i + 1][j - 1] && s[i] == s[j]) { dp[i][j] = true; if (k > maxLength) { start = i; maxLength = k; } } } } return s.substr(start, maxLength); }",
+	},
+	{
+		id: 184,
+		title: "# Q184. Given an array of integers, return the maximum sum of a subarray.",
+		text: undefined,
+		code2: "int maxSubArray(vector<int>& nums) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. int maxSum = nums[0], currentSum = nums[0]; for (int i = 1; i < nums.size(); i++) { currentSum = max(nums[i], currentSum + nums[i]); maxSum = max(maxSum, currentSum); } return maxSum;",
+			"4. return nums.length();",
+		],
+		answer: "3. int maxSum = nums[0], currentSum = nums[0]; for (int i = 1; i < nums.size(); i++) { currentSum = max(nums[i], currentSum + nums[i]); maxSum = max(maxSum, currentSum); } return maxSum;",
+		solution:
+			"int maxSubArray(vector<int>& nums) { int maxSum = nums[0], currentSum = nums[0]; for (int i = 1; i < nums.size(); i++) { currentSum = max(nums[i], currentSum + nums[i]); maxSum = max(maxSum, currentSum); } return maxSum; }",
+	},
+	{
+		id: 185,
+		title: "# Q185. Given a binary tree, return the maximum depth of the tree.",
+		text: undefined,
+		code2: "int maxDepth(TreeNode* root) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return root;",
+			"3. if (!root) return 0; return 1 + max(maxDepth(root->left), maxDepth(root->right));",
+			"4. return root->val;",
+		],
+		answer: "3. if (!root) return 0; return 1 + max(maxDepth(root->left), maxDepth(root->right));",
+		solution:
+			"int maxDepth(TreeNode* root) { if (!root) return 0; return 1 + max(maxDepth(root->left), maxDepth(root->right)); }",
+	},
+	{
+		id: 186,
+		title: "# Q186. Given a binary tree, return the minimum depth of the tree.",
+		text: undefined,
+		code2: "int minDepth(TreeNode* root) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return root;",
+			"3. if (!root) return 0; if (!root->left) return 1 + minDepth(root->right); if (!root->right) return 1 + minDepth(root->left); return 1 + min(minDepth(root->left), minDepth(root->right));",
+			"4. return root->val;",
+		],
+		answer: "3. if (!root) return 0; if (!root->left) return 1 + minDepth(root->right); if (!root->right) return 1 + minDepth(root->left); return 1 + min(minDepth(root->left), minDepth(root->right));",
+		solution:
+			"int minDepth(TreeNode* root) { if (!root) return 0; if (!root->left) return 1 + minDepth(root->right); if (!root->right) return 1 + minDepth(root->left); return 1 + min(minDepth(root->left), minDepth(root->right)); }",
+	},
+	{
+		id: 187,
+		title: "# Q187. Given a string, find the first non-repeating character.",
+		text: undefined,
+		code2: "char firstNonRepeatingCharacter(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return ' ';",
+			"2. return s[0];",
+			"3. unordered_map<char, int> charCount; for (char c : s) { charCount[c]++; } for (char c : s) { if (charCount[c] == 1) { return c; } } return ' ';",
+			"4. return s.length();",
+		],
+		answer: "3. unordered_map<char, int> charCount; for (char c : s) { charCount[c]++; } for (char c : s) { if (charCount[c] == 1) { return c; } } return ' ';",
+		solution:
+			"char firstNonRepeatingCharacter(string s) { unordered_map<char, int> charCount; for (char c : s) { charCount[c]++; } for (char c : s) { if (charCount[c] == 1) { return c; } } return ' '; }",
+	},
+	{
+		id: 188,
+		title: "# Q188. Given an array of integers, return the second largest element.",
+		text: undefined,
+		code2: "int secondLargestElement(vector<int>& nums) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. int first = INT_MIN, second = INT_MIN; for (int num : nums) { if (num > first) { second = first; first = num; } else if (num > second && num != first) { second = num; } } return second;",
+			"4. return nums.length();",
+		],
+		answer: "3. int first = INT_MIN, second = INT_MIN; for (int num : nums) { if (num > first) { second = first; first = num; } else if (num > second && num != first) { second = num; } } return second;",
+		solution:
+			"int secondLargestElement(vector<int>& nums) { int first = INT_MIN, second = INT_MIN; for (int num : nums) { if (num > first) { second = first; first = num; } else if (num > second && num != first) { second = num; } } return second; }",
+	},
+	{
+		id: 189,
+		title: "# Q189. Given a string, return the most frequent character.",
+		text: undefined,
+		code2: "char mostFrequentCharacter(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return ' ';",
+			"2. return s[0];",
+			"3. unordered_map<char, int> charCount; char mostFrequent = ' '; int maxCount = 0; for (char c : s) { charCount[c]++; if (charCount[c] > maxCount) { maxCount = charCount[c]; mostFrequent = c; } } return mostFrequent;",
+			"4. return s.length();",
+		],
+		answer: "3. unordered_map<char, int> charCount; char mostFrequent = ' '; int maxCount = 0; for (char c : s) { charCount[c]++; if (charCount[c] > maxCount) { maxCount = charCount[c]; mostFrequent = c; } } return mostFrequent;",
+		solution:
+			"char mostFrequentCharacter(string s) { unordered_map<char, int> charCount; char mostFrequent = ' '; int maxCount = 0; for (char c : s) { charCount[c]++; if (charCount[c] > maxCount) { maxCount = charCount[c]; mostFrequent = c; } } return mostFrequent; }",
+	},
+	{
+		id: 190,
+		title: "# Q190. Given an array of integers, return the number of unique elements.",
+		text: undefined,
+		code2: "int countUniqueElements(vector<int>& nums) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. unordered_set<int> uniqueElements; for (int num : nums) { uniqueElements.insert(num); } return uniqueElements.size();",
+			"4. return nums.length();",
+		],
+		answer: "3. unordered_set<int> uniqueElements; for (int num : nums) { uniqueElements.insert(num); } return uniqueElements.size();",
+		solution:
+			"int countUniqueElements(vector<int>& nums) { unordered_set<int> uniqueElements; for (int num : nums) { uniqueElements.insert(num); } return uniqueElements.size(); }",
+	},
+	{
+		id: 191,
+		title: "# Q191. Given a string, return the number of vowels in the string.",
+		text: undefined,
+		code2: "int countVowels(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return s.size();",
+			"3. int count = 0; for (char c : s) { if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') { count++; } } return count;",
+			"4. return s.length();",
+		],
+		answer: "3. int count = 0; for (char c : s) { if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') { count++; } } return count;",
+		solution:
+			"int countVowels(string s) { int count = 0; for (char c : s) { if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') { count++; } } return count; }",
+	},
+	{
+		id: 192,
+		title: "# Q192. Given an array of integers, return the sum of all even numbers.",
+		text: undefined,
+		code2: "int sumEvenNumbers(vector<int>& nums) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. int sum = 0; for (int num : nums) { if (num % 2 == 0) { sum += num; } } return sum;",
+			"4. return nums.length();",
+		],
+		answer: "3. int sum = 0; for (int num : nums) { if (num % 2 == 0) { sum += num; } } return sum;",
+		solution:
+			"int sumEvenNumbers(vector<int>& nums) { int sum = 0; for (int num : nums) { if (num % 2 == 0) { sum += num; } } return sum; }",
+	},
+	{
+		id: 193,
+		title: "# Q193. Given a string, return the number of consonants in the string.",
+		text: undefined,
+		code2: "int countConsonants(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return s.size();",
+			"3. int count = 0; for (char c : s) { if (isalpha(c) && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) { count++; } } return count;",
+			"4. return s.length();",
+		],
+		answer: "3. int count = 0; for (char c : s) { if (isalpha(c) && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) { count++; } } return count;",
+		solution:
+			"int countConsonants(string s) { int count = 0; for (char c : s) { if (isalpha(c) && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) { count++; } } return count; }",
+	},
+	{
+		id: 194,
+		title: "# Q194. Given an array of integers, return the number of elements greater than a given value.",
+		text: undefined,
+		code2: "int countGreaterThan(vector<int>& nums, int val) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. int count = 0; for (int num : nums) { if (num > val) { count++; } } return count;",
+			"4. return nums.length();",
+		],
+		answer: "3. int count = 0; for (int num : nums) { if (num > val) { count++; } } return count;",
+		solution:
+			"int countGreaterThan(vector<int>& nums, int val) { int count = 0; for (int num : nums) { if (num > val) { count++; } } return count; }",
+	},
+	{
+		id: 195,
+		title: "# Q195. Given a string, return the number of uppercase letters.",
+		text: undefined,
+		code2: "int countUppercase(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return s.size();",
+			"3. int count = 0; for (char c : s) { if (isupper(c)) { count++; } } return count;",
+			"4. return s.length();",
+		],
+		answer: "3. int count = 0; for (char c : s) { if (isupper(c)) { count++; } } return count;",
+		solution:
+			"int countUppercase(string s) { int count = 0; for (char c : s) { if (isupper(c)) { count++; } } return count; }",
+	},
+	{
+		id: 196,
+		title: "# Q196. Given an array of integers, return the number of elements less than a given value.",
+		text: undefined,
+		code2: "int countLessThan(vector<int>& nums, int val) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. int count = 0; for (int num : nums) { if (num < val) { count++; } } return count;",
+			"4. return nums.length();",
+		],
+		answer: "3. int count = 0; for (int num : nums) { if (num < val) { count++; } } return count;",
+		solution:
+			"int countLessThan(vector<int>& nums, int val) { int count = 0; for (int num : nums) { if (num < val) { count++; } } return count; }",
+	},
+	{
+		id: 197,
+		title: "# Q197. Given a string, return the number of digits.",
+		text: undefined,
+		code2: "int countDigits(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return s.size();",
+			"3. int count = 0; for (char c : s) { if (isdigit(c)) { count++; } } return count;",
+			"4. return s.length();",
+		],
+		answer: "3. int count = 0; for (char c : s) { if (isdigit(c)) { count++; } } return count;",
+		solution:
+			"int countDigits(string s) { int count = 0; for (char c : s) { if (isdigit(c)) { count++; } } return count; }",
+	},
+	{
+		id: 198,
+		title: "# Q198. Given an array of integers, return the number of elements equal to a given value.",
+		text: undefined,
+		code2: "int countEqualTo(vector<int>& nums, int val) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return nums.size();",
+			"3. int count = 0; for (int num : nums) { if (num == val) { count++; } } return count;",
+			"4. return nums.length();",
+		],
+		answer: "3. int count = 0; for (int num : nums) { if (num == val) { count++; } } return count;",
+		solution:
+			"int countEqualTo(vector<int>& nums, int val) { int count = 0; for (int num : nums) { if (num == val) { count++; } } return count; }",
+	},
+	{
+		id: 199,
+		title: "# Q199. Given a string, return the number of lowercase letters.",
+		text: undefined,
+		code2: "int countLowercase(string s) {  // Implement the logic here }",
+		choices: [
+			"1. return 0;",
+			"2. return s.size();",
+			"3. int count = 0; for (char c : s) { if (islower(c)) { count++; } } return count;",
+			"4. return s.length();",
+		],
+		answer: "3. int count = 0; for (char c : s) { if (islower(c)) { count++; } } return count;",
+		solution:
+			"int countLowercase(string s) { int count = 0; for (char c : s) { if (islower(c)) { count++; } } return count; }",
+	},
+	
+]
 // let cppq1 = cpp[Math.floor(Math.random())* cpp.length+9];
 // // console.log(cppq1);
 
