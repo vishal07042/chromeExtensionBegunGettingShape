@@ -14,6 +14,7 @@ export default defineConfig({
 				content: resolve(__dirname, "content.js"),
 				codeRunner: resolve(__dirname, "codeRunner.js"),
 				script2: resolve(__dirname, "script2.js"),
+				script3foregg: resolve(__dirname, "script3foregg.js"),
 			},
 			output: {
 				entryFileNames: '[name].js', // Keep the original file names

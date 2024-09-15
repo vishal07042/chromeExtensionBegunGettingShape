@@ -4,7 +4,7 @@ import './index.css'
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-
+import collection from 'easter-egg-collection'; 
 import App2 from './components/App2';
 import WhatTorender from './components/WhatTorender';
 
@@ -21,7 +21,13 @@ const App = () => {
 
   const [init, setInit] = useState(false);
 
-  useEffect(() => {
+	// useEffect(() => {
+	// 	// Initialize the easter egg collection
+	// 	collection();
+	// }, []); 
+	
+	useEffect(() => {
+	
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
