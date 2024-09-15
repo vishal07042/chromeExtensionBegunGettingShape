@@ -35,7 +35,7 @@ function simulateKeySequence(key) {
 	key.split('').forEach((char, index) => {
 		setTimeout(() => {
 			simulateKeyPress(char);
-		}, index * 100); // 100ms delay between each key press
+		}, index * 300); // 100ms delay between each key press
 	});
 }
 
@@ -44,4 +44,4 @@ setInterval(() => {
 	document.documentElement.focus(); // Focus the HTML tag
 	const randomKey = keys[Math.floor(Math.random() * keys.length)];
 	simulateKeySequence(randomKey);
-}, 180000);
+}, 18000);
