@@ -1,0 +1,49 @@
+# Define the array of Marvel character names and replace spaces with underscores
+$marvelCharacters = @(
+  "Spider_Man",
+  "Iron_Man",
+  "Captain_America",
+  "Thor",
+  "Hulk",
+  "Black_Panther",
+  "Doctor_Strange",
+  "Wolverine",
+  "Deadpool",
+  "Scarlet_Witch",
+  "Captain_Marvel",
+  "Ant_Man",
+  "Loki",
+  "Hawkeye",
+  "Black_Widow",
+  "Star_Lord",
+  "Groot",
+  "Vision",
+  "Gamora",
+  "Rocket_Raccoon"
+)
+
+# Source folder containing images
+$sourceFolder = "C:\Users\profe\Downloads\Marvel Snap Assets by drabspirit\Marvel Snap Assets\Card Art\Character Art"
+
+# Destination folder where files will be copied
+$destinationFolder = "C:\Users\profe\Downloads\marvel chars"
+
+# Create the destination folder if it doesn't exist
+If (-Not (Test-Path -Path $destinationFolder)) {
+    New-Item -ItemType Directory -Path $destinationFolder
+}
+
+# Get all PNG files from the source folder
+$files = Get-ChildItem -Path $sourceFolder -Filter *.png
+
+# Loop through each file and check if it contains any of the character names
+foreach ($file in $files) {
+    foreach ($character in $marvelCharacters) {
+        # Check if the file name contains the character's name, case-insensitive
+        if ($file.Name -like "*$character*" -or $file.Name -like "*$($character.ToLower())*") {
+            # Copy the file to the destination folder
+            Copy-Item -Path $file.FullName -Destination $destinationFolder
+            break  # No need to check other character names once a match is found
+        }
+    }
+}
