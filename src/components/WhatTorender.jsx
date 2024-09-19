@@ -3,6 +3,9 @@ import App2 from './App2';
 import QuizSection from './DragDrop1';
 import DragDrop2 from './DragDrop2';
 import ColumnMatchingQuiz from './Matchthecolumn';
+import DSAFlashcards from './FlashCard.jsx';
+
+import FlowchartApp from './FlowChart.jsx';
 
 function WhatTorender() {
     const [quizAppps, setQuizApps] = useState("App2");
@@ -21,6 +24,8 @@ function WhatTorender() {
             {quizAppps === "DragDrop1" ? <QuizSection /> : null}
             {quizAppps === "DragDrop2" ? <DragDrop2 /> : null}
            {quizAppps === "MatchtheColum" ? < ColumnMatchingQuiz/> : null}
+            {quizAppps === "FlashCard" ? < DSAFlashcards /> : null}
+           {quizAppps === "FlowChart" ? <FlowchartApp/> : null}
         </div>
     );
 }
