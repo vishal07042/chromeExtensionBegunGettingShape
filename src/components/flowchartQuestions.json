@@ -1,0 +1,266 @@
+[
+	{
+		"question": "How does binary search work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Is array sorted?",
+					"children": [
+						{
+							"text": "Sort array",
+							"children": [
+								{ "text": "Set left = 0, right = length - 1" }
+							]
+						},
+						{
+							"text": "Set left = 0, right = length - 1",
+							"children": [
+								{
+									"text": "Calculate mid = (left + right) / 2",
+									"children": [
+										{
+											"text": "Is target == arr[mid]?",
+											"children": [
+												{ "text": "Return mid" },
+												{
+													"text": "Is target < arr[mid]?",
+													"children": [
+														{
+															"text": "right = mid - 1",
+															"children": [
+																{
+																	"text": "Continue search"
+																}
+															]
+														},
+														{
+															"text": "left = mid + 1",
+															"children": [
+																{
+																	"text": "Continue search"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does bubble sort work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "For i = 0 to n-1",
+					"children": [
+						{
+							"text": "For j = 0 to n-i-1",
+							"children": [
+								{
+									"text": "If arr[j] > arr[j+1]",
+									"children": [
+										{ "text": "Swap arr[j] and arr[j+1]" },
+										{ "text": "Continue inner loop" }
+									]
+								},
+								{ "text": "Continue outer loop" }
+							]
+						},
+						{ "text": "Array is sorted" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does quicksort work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Choose pivot",
+					"children": [
+						{
+							"text": "Partition array",
+							"children": [
+								{ "text": "Recursively sort left partition" },
+								{ "text": "Recursively sort right partition" }
+							]
+						},
+						{ "text": "Combine partitions" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does merge sort work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Divide array into two halves",
+					"children": [
+						{ "text": "Recursively sort left half" },
+						{ "text": "Recursively sort right half" },
+						{
+							"text": "Merge sorted halves",
+							"children": [{ "text": "Return sorted array" }]
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does breadth-first search (BFS) work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Enqueue start node",
+					"children": [
+						{
+							"text": "While queue not empty",
+							"children": [
+								{ "text": "Dequeue node" },
+								{ "text": "Process node" },
+								{ "text": "Enqueue unvisited neighbors" }
+							]
+						},
+						{ "text": "Search complete" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does depth-first search (DFS) work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Push start node to stack",
+					"children": [
+						{
+							"text": "While stack not empty",
+							"children": [
+								{ "text": "Pop node from stack" },
+								{ "text": "Process node" },
+								{ "text": "Push unvisited neighbors" }
+							]
+						},
+						{ "text": "Search complete" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does Dijkstra's algorithm work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Initialize distances",
+					"children": [
+						{
+							"text": "While unvisited nodes exist",
+							"children": [
+								{ "text": "Select node with min distance" },
+								{ "text": "Update neighbors' distances" },
+								{ "text": "Mark node as visited" }
+							]
+						},
+						{ "text": "Return shortest paths" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does the knapsack problem (dynamic programming) work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Create DP table",
+					"children": [
+						{
+							"text": "For each item i",
+							"children": [
+								{
+									"text": "For each weight w",
+									"children": [
+										{ "text": "Calculate max value" },
+										{ "text": "Update DP[i][w]" }
+									]
+								}
+							]
+						},
+						{ "text": "Return max value" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does the Floyd-Warshall algorithm work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Initialize distance matrix",
+					"children": [
+						{
+							"text": "For each intermediate vertex k",
+							"children": [
+								{
+									"text": "For each pair (i,j)",
+									"children": [
+										{ "text": "Update dist[i][j]" },
+										{ "text": "Continue iterations" }
+									]
+								}
+							]
+						},
+						{ "text": "Return all-pairs shortest paths" }
+					]
+				}
+			]
+		}
+	},
+	{
+		"question": "How does the A* search algorithm work?",
+		"tree": {
+			"text": "Start",
+			"children": [
+				{
+					"text": "Initialize open and closed sets",
+					"children": [
+						{
+							"text": "While open set not empty",
+							"children": [
+								{ "text": "Choose node with lowest f-score" },
+								{ "text": "If goal reached, return path" },
+								{ "text": "Generate neighbors" },
+								{ "text": "Update g and f scores" }
+							]
+						},
+						{ "text": "No path found" }
+					]
+				}
+			]
+		}
+	}
+]

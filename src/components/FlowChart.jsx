@@ -1,271 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import questions from './flowchartQuestions.json';
 
-const questions = [
-    {
-        question: "How does binary search work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Is array sorted?",
-                    children: [
-                        {
-                            text: "Sort array",
-                            children: [{ text: "Set left = 0, right = length - 1" }]
-                        },
-                        {
-                            text: "Set left = 0, right = length - 1",
-                            children: [
-                                {
-                                    text: "Calculate mid = (left + right) / 2",
-                                    children: [
-                                        {
-                                            text: "Is target == arr[mid]?",
-                                            children: [
-                                                { text: "Return mid" },
-                                                {
-                                                    text: "Is target < arr[mid]?",
-                                                    children: [
-                                                        {
-                                                            text: "right = mid - 1",
-                                                            children: [{ text: "Continue search" }]
-                                                        },
-                                                        {
-                                                            text: "left = mid + 1",
-                                                            children: [{ text: "Continue search" }]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does bubble sort work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "For i = 0 to n-1",
-                    children: [
-                        {
-                            text: "For j = 0 to n-i-1",
-                            children: [
-                                {
-                                    text: "If arr[j] > arr[j+1]",
-                                    children: [
-                                        { text: "Swap arr[j] and arr[j+1]" },
-                                        { text: "Continue inner loop" }
-                                    ]
-                                },
-                                { text: "Continue outer loop" }
-                            ]
-                        },
-                        { text: "Array is sorted" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does quicksort work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Choose pivot",
-                    children: [
-                        {
-                            text: "Partition array",
-                            children: [
-                                { text: "Recursively sort left partition" },
-                                { text: "Recursively sort right partition" }
-                            ]
-                        },
-                        { text: "Combine partitions" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does merge sort work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Divide array into two halves",
-                    children: [
-                        { text: "Recursively sort left half" },
-                        { text: "Recursively sort right half" },
-                        {
-                            text: "Merge sorted halves",
-                            children: [{ text: "Return sorted array" }]
-                        }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does breadth-first search (BFS) work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Enqueue start node",
-                    children: [
-                        {
-                            text: "While queue not empty",
-                            children: [
-                                { text: "Dequeue node" },
-                                { text: "Process node" },
-                                { text: "Enqueue unvisited neighbors" }
-                            ]
-                        },
-                        { text: "Search complete" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does depth-first search (DFS) work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Push start node to stack",
-                    children: [
-                        {
-                            text: "While stack not empty",
-                            children: [
-                                { text: "Pop node from stack" },
-                                { text: "Process node" },
-                                { text: "Push unvisited neighbors" }
-                            ]
-                        },
-                        { text: "Search complete" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does Dijkstra's algorithm work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Initialize distances",
-                    children: [
-                        {
-                            text: "While unvisited nodes exist",
-                            children: [
-                                { text: "Select node with min distance" },
-                                { text: "Update neighbors' distances" },
-                                { text: "Mark node as visited" }
-                            ]
-                        },
-                        { text: "Return shortest paths" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does the knapsack problem (dynamic programming) work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Create DP table",
-                    children: [
-                        {
-                            text: "For each item i",
-                            children: [
-                                {
-                                    text: "For each weight w",
-                                    children: [
-                                        { text: "Calculate max value" },
-                                        { text: "Update DP[i][w]" }
-                                    ]
-                                }
-                            ]
-                        },
-                        { text: "Return max value" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does the Floyd-Warshall algorithm work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Initialize distance matrix",
-                    children: [
-                        {
-                            text: "For each intermediate vertex k",
-                            children: [
-                                {
-                                    text: "For each pair (i,j)",
-                                    children: [
-                                        { text: "Update dist[i][j]" },
-                                        { text: "Continue iterations" }
-                                    ]
-                                }
-                            ]
-                        },
-                        { text: "Return all-pairs shortest paths" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        question: "How does the A* search algorithm work?",
-        tree: {
-            text: "Start",
-            children: [
-                {
-                    text: "Initialize open and closed sets",
-                    children: [
-                        {
-                            text: "While open set not empty",
-                            children: [
-                                { text: "Choose node with lowest f-score" },
-                                { text: "If goal reached, return path" },
-                                { text: "Generate neighbors" },
-                                { text: "Update g and f scores" }
-                            ]
-                        },
-                        { text: "No path found" }
-                    ]
-                }
-            ]
-        }
-    }
-];
-
-const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'];
+const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#FFD700', '#FF6347', '#7B68EE', '#32CD32', '#FF4500'];
 
 const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
     const [isHighlighted, setIsHighlighted] = useState(false);
-    const width = 160;
-    const height = 60;
+    const width = 180;
+    const height = 70;
 
     useEffect(() => {
         if (isHighlighted) {
@@ -285,7 +28,7 @@ const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
         let currentLine = words[0];
 
         for (let i = 1; i < words.length; i++) {
-            if (currentLine.length + words[i].length + 1 <= 20) {
+            if (currentLine.length + words[i].length + 1 <= 25) {
                 currentLine += ' ' + words[i];
             } else {
                 lines.push(currentLine);
@@ -295,15 +38,19 @@ const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
         lines.push(currentLine);
 
         return lines.map((line, index) => (
-            <tspan key={index} x={x} dy={index ? lineHeight : 0}>
+            <tspan className="text-xl p-2 m-2" key={index} x={x} dy={index ? lineHeight : 0}>
                 {line}
             </tspan>
         ));
     };
 
     return (
-        <g>
-            <rect
+        <motion.g
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, delay: level * 0.2 }}
+        >
+            <motion.rect
                 x={x - width / 2}
                 y={y - height / 2}
                 width={width}
@@ -313,32 +60,40 @@ const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
                 fill={isHighlighted ? '#FFD700' : color}
                 stroke="#333"
                 strokeWidth="2"
-                className="transition-all duration-300 cursor-pointer"
+                className="transition-all duration-300 cursor-pointer p-2 m-2"
                 onClick={handleClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             />
-            <text
+            <motion.text
                 x={x}
                 y={y}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontSize="12"
-                fill="#fff"
+                fontSize="16"
+                fontWeight="bold"
+                fill="#000"
                 onClick={handleClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             >
-                {renderTextLines(node.text, 16)}
-            </text>
+                {renderTextLines(node.text, 20)}
+            </motion.text>
             {node.children && node.children.map((child, index) => {
-                const childX = x + (index - (node.children.length - 1) / 2) * 200;
-                const childY = y + 120;
+                const childX = x + (index - (node.children.length - 1) / 2) * 220;
+                const childY = y + 140;
                 return (
                     <g key={index}>
-                        <line
+                        <motion.line
                             x1={x}
                             y1={y + height / 2}
                             x2={childX}
                             y2={childY - height / 2}
                             stroke="#333"
                             strokeWidth="2"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: level * 0.2 + 0.2 }}
                         />
                         <TreeNode
                             node={child}
@@ -351,16 +106,17 @@ const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
                     </g>
                 );
             })}
-        </g>
+        </motion.g>
     );
 };
 
 const FlowchartApp = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * questions.length));
     const [selectedNode, setSelectedNode] = useState(null);
+    const [isDarkTheme, setIsDarkTheme] = useState(true);
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % questions.length);
+        setCurrentIndex(Math.floor(Math.random() * questions.length));
         setSelectedNode(null);
     };
 
@@ -368,19 +124,23 @@ const FlowchartApp = () => {
         setSelectedNode(node);
     };
 
+    const toggleTheme = () => {
+        setIsDarkTheme(!isDarkTheme);
+    };
+
     return (
-        <Card className="w-full max-w-6xl mx-auto">
-            <CardHeader>
-                <CardTitle className="text-2xl font-bold text-center">
+        <div className={`w-full max-w-6xl mx-auto shadow-md rounded-lg ${isDarkTheme ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
+            <div className={`p-4 border-b ${isDarkTheme ? 'border-gray-700' : 'border-gray-300'}`}>
+                <h2 className="text-xl font-extrabold text-center">
                     {questions[currentIndex].question}
-                </CardTitle>
-            </CardHeader>
-            <CardContent className="overflow-x-auto">
+                </h2>
+            </div>
+            <div className="overflow-x-auto p-4">
                 <div className="min-w-max p-4">
-                    <svg width="1000" height="600" className="mx-auto">
+                    <svg width="1400" height="1400" className="mx-auto">
                         <TreeNode
                             node={questions[currentIndex].tree}
-                            x={500}
+                            x={700}
                             y={60}
                             color={colors[0]}
                             onNodeClick={handleNodeClick}
@@ -388,19 +148,24 @@ const FlowchartApp = () => {
                     </svg>
                 </div>
                 {selectedNode && (
-                    <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-                        <h3 className="font-bold">Selected Step: {selectedNode.text}</h3>
+                    <div className={`mt-4 p-4 rounded-lg ${isDarkTheme ? 'bg-gray-800' : 'bg-gray-200'}`}>
+                        <h3 className="font-extrabold text-lg">Selected Step: {selectedNode.text}</h3>
                         <p>Click on nodes to see more details about each step in the algorithm.</p>
                     </div>
                 )}
-            </CardContent>
-            <CardFooter className="flex justify-between items-center">
+            </div>
+            <div className={`flex justify-between items-center p-4 border-t ${isDarkTheme ? 'border-gray-700' : 'border-gray-300'}`}>
                 <div>Question {currentIndex + 1} of {questions.length}</div>
-                <Button onClick={handleNext} className="flex items-center">
-                    Next <ArrowRight className="ml-2" />
-                </Button>
-            </CardFooter>
-        </Card>
+                <div className="flex space-x-4">
+                    <button onClick={toggleTheme} className="flex items-center bg-green-500 text-white px-4 py-2 rounded">
+                        Toggle Theme
+                    </button>
+                    <button onClick={handleNext} className="flex items-center bg-blue-500 text-white px-4 py-2 rounded">
+                        Next <ArrowRight className="ml-2" />
+                    </button>
+                </div>
+            </div>
+        </div>
     );
 };
 
