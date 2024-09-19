@@ -7,8 +7,8 @@ const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#FFD700'
 
 const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
     const [isHighlighted, setIsHighlighted] = useState(false);
-    const width = 180;
-    const height = 70;
+    const width = 260;
+    const height = 80;
 
     useEffect(() => {
         if (isHighlighted) {
@@ -38,7 +38,7 @@ const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
         lines.push(currentLine);
 
         return lines.map((line, index) => (
-            <tspan className="text-xl p-2 m-2" key={index} x={x} dy={index ? lineHeight : 0}>
+            <tspan className="text-xl flex  flex-wrap justify-center items-center p-2 m-2" key={index} x={x} dy={index ? lineHeight : 0}>
                 {line}
             </tspan>
         ));
@@ -80,8 +80,8 @@ const TreeNode = ({ node, x, y, color, onNodeClick, level = 0 }) => {
                 {renderTextLines(node.text, 20)}
             </motion.text>
             {node.children && node.children.map((child, index) => {
-                const childX = x + (index - (node.children.length - 1) / 2) * 220;
-                const childY = y + 140;
+                const childX = x + (index - (node.children.length - 1) / 2) * 300;
+                const childY = y + 180;
                 return (
                     <g key={index}>
                         <motion.line
@@ -129,7 +129,7 @@ const FlowchartApp = () => {
     };
 
     return (
-        <div className={`w-full max-w-6xl mx-auto shadow-md rounded-lg ${isDarkTheme ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
+        <div className={`w-full h-full max-w-6xl mx-auto shadow-md rounded-lg ${isDarkTheme ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
             <div className={`p-4 border-b ${isDarkTheme ? 'border-gray-700' : 'border-gray-300'}`}>
                 <h2 className="text-xl font-extrabold text-center">
                     {questions[currentIndex].question}

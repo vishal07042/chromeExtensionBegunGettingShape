@@ -118,7 +118,7 @@ const DSAFlashcards = () => {
     };
 
     return (
-        <div className={`flex items-center justify-center min-h-screen ${bgColor} transition-colors duration-1000`}>
+        <div className={` w-full h-full flex items-center justify-center min-h-screen ${bgColor} transition-colors duration-1000`}>
             <button onClick={prevCard} className="mr-4 text-white z-20">
                 <ChevronLeft size={32} />
             </button>
