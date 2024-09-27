@@ -19,11 +19,11 @@ const DragDrop2 = () => {
     }, [currentQuestionIndex]);
 
     // Re-run syntax highlighting whenever the answer is updated
-    useEffect(() => {
-        document.querySelectorAll('pre code').forEach((el) => {
-            hljs.highlightElement(el); // Apply syntax highlighting
-        });
-    }, [answer]);
+    // useEffect(() => {
+    //     document.querySelectorAll('pre code').forEach((el) => {
+    //         hljs.highlightElement(el); // Apply syntax highlighting
+    //     });
+    // }, [answer]);
 
     const currentQuestion = quizQuestions[currentQuestionIndex];
 
@@ -32,24 +32,24 @@ const DragDrop2 = () => {
     }
 
     const onDragStart = (e, content, id) => {
-        console.log(`Drag started with content: ${content} and id: ${id}`);
+        // console.log(`Drag started with content: ${content} and id: ${id}`);
         e.dataTransfer.setData('text/plain', JSON.stringify({ content, id }));
     };
 
     const onDragOver = (e) => {
-        console.log("Drag over event triggered");
+        // console.log("Drag over event triggered");
         e.preventDefault();
     };
 
     const escapeSpecialChars = (str) => {
-        console.log(`Escaping special characters in string: ${str}`);
+        // console.log(`Escaping special characters in string: ${str}`);
         return str.replace(/[/]/g, '');  // Remove slashes if needed
     };
 
     const onDrop = (e) => {
         e.preventDefault();
         let { content, id } = JSON.parse(e.dataTransfer.getData('text/plain'));
-        console.log(`Dropped content: ${content}, id: ${id}`);
+        // console.log(`Dropped content: ${content}, id: ${id}`);
 
         // Process content to remove unwanted characters
         // content = escapeSpecialChars(content);
@@ -59,7 +59,7 @@ const DragDrop2 = () => {
             const updatedAnswer = `${answer}${content}\n`;
             setAnswer(updatedAnswer);
 
-            console.log(`Updated answer: ${updatedAnswer}`);
+            // console.log(`Updated answer: ${updatedAnswer}`);
 
             // Handle removing dropped option from options list
             setOptions(options.filter(option => option.id !== id));
@@ -69,7 +69,7 @@ const DragDrop2 = () => {
                 // Move cursor to the end of the updated answer
                 textAreaRef.current.selectionStart = updatedAnswer.length;
                 textAreaRef.current.selectionEnd = updatedAnswer.length;
-                console.log("Cursor repositioned to the end after drop");
+                // console.log("Cursor repositioned to the end after drop");
             }, 0);
         } else {
             console.log("Dropped content already exists in the answer.");
@@ -83,7 +83,7 @@ const DragDrop2 = () => {
     };
 
     const checkAnswer = () => {
-        console.log("Checking answer...");
+        // console.log("Checking answer...");
         const isCorrect = answer.trim() === currentQuestion.correctAnswer.trim();
         setFeedback(isCorrect ? 'Correct! Great job!' : 'Incorrect. Try again.');
         console.log(`Answer is ${isCorrect ? "correct" : "incorrect"}`);
@@ -91,18 +91,18 @@ const DragDrop2 = () => {
     };
 
     const nextQuestion = () => {
-        console.log("Loading next question...");
+        // console.log("Loading next question...");
         setCurrentQuestionIndex(getRandomIndex());
         setAnswer('');
         setFeedback('');
-        console.log(`New question index: ${currentQuestionIndex}`);
+        // console.log(`New question index: ${currentQuestionIndex}`);
     };
 
     const resetQuiz = () => {
         setOptions(quizQuestions[currentQuestionIndex].options);
         setAnswer('');
         setFeedback('');
-        console.log(`Current question reset to its default state.`);
+        // console.log(`Current question reset to its default state.`);
     };
 
     return (
