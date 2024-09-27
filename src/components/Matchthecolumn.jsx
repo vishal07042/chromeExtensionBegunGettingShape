@@ -1,82 +1,4 @@
-
-
 import React, { useState, useRef, useEffect } from 'react';
-
-// const quizData = [
-//     [
-//         {
-//             id: 1,
-//             "QuestionNo.": "1",
-//             question: "Given a string representing a number, return the closest number that is a palindrome.",
-//             correctAnswer: "Some other pattern"
-//         },
-//         {
-//             id: 2,
-//             "QuestionNo.": "1",
-//             question: "Given an array of numbers in the range 1 to n, find all the numbers that are missing in the array.",
-//             correctAnswer: "Cyclic Sort"
-//         },
-//         {
-//             id: 3,
-//             "QuestionNo.": "1",
-//             question: "Given a set of numbers, find the first 5 missing positive numbers.",
-//             correctAnswer: "Some other pattern"
-//         },
-//         {
-//             id: 4,
-//             "QuestionNo.": "1",
-//             question: "Given a set, return the number of subsets with the sum equal to 10.",
-//             correctAnswer: "Some other pattern"
-//         },
-//         {
-//             id: 5,
-//             "QuestionNo.": "1",
-//             question: "Given an array of integers, find two numbers such that they add up to a specific target number.",
-//             correctAnswer: "Two Pointers"
-//         },
-
-//     ],
-//     [
-//         {
-//             id: 6,
-//             "QuestionNo.": "2",
-//             question: "Given a binary tree, find the maximum depth of the tree.",
-//             correctAnswer: "Depth-First Search"
-//         },
-//         {
-//             id: 7,
-//             "QuestionNo.": "2",
-//             question: "Given a string, find the length of the longest substring without repeating characters.",
-//             correctAnswer: "Sliding Window"
-//         }, {
-//             id: 8,
-//             "QuestionNo.": "2",
-//             question: "Given an array of integers, find the contiguous subarray with the largest sum.",
-//             correctAnswer: "Kadane's Algorithm"
-//         }
-//     ],
-//     [
-//         {
-//             id: 9,
-//             "QuestionNo.": "3",
-//             question: "Given a binary tree, find the maximum depth of the tree.",
-//             correctAnswer: "Depth-First Search"
-//         },
-//         {
-//             id: 10,
-//             "QuestionNo.": "3",
-//             question: "Given a string, find the length of the longest substring without repeating characters.",
-//             correctAnswer: "Sliding Window"
-//         },
-//         {
-//             id: 11,
-//             "QuestionNo.": "3",
-//             question: "Given an array of integers, find the contiguous subarray with the largest sum.",
-//             correctAnswer: "Kadane's Algorithm"
-//         }
-//     ],
-   
-// ];
 
 const quizData = [
     [
@@ -247,6 +169,281 @@ const quizData = [
             question: "Given an m x n grid of characters board and a string word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells.",
             correctAnswer: "Backtracking"
         }
+    ],
+    // Additional Questions based on the patterns shown in the image
+    [
+        {
+            id: 27,
+            "QuestionNo.": "7",
+            question: "Given an array of integers, find the maximum sum of a subarray with at most k elements.",
+            correctAnswer: "Sliding Window"
+        },
+        {
+            id: 28,
+            "QuestionNo.": "7",
+            question: "Given a sorted array, find the pair of elements that sum up to a given target.",
+            correctAnswer: "Two Pointers"
+        },
+        {
+            id: 29,
+            "QuestionNo.": "7",
+            question: "Given a linked list, detect if it has a cycle.",
+            correctAnswer: "Fast and Slow Pointers"
+        },
+        {
+            id: 30,
+            "QuestionNo.": "7",
+            question: "Given an array of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.",
+            correctAnswer: "Merge Intervals"
+        },
+        {
+            id: 31,
+            "QuestionNo.": "7",
+            question: "Given an array of integers, sort it using cyclic sort.",
+            correctAnswer: "Cyclic Sort"
+        }
+    ],
+    [
+        {
+            id: 32,
+            "QuestionNo.": "8",
+            question: "Given a linked list, reverse it in place.",
+            correctAnswer: "In-place Reversal of Linked List"
+        },
+        {
+            id: 33,
+            "QuestionNo.": "8",
+            question: "Given a binary tree, return its level order traversal.",
+            correctAnswer: "Tree BFS"
+        },
+        {
+            id: 34,
+            "QuestionNo.": "8",
+            question: "Given a binary tree, return its pre-order traversal.",
+            correctAnswer: "Tree DFS"
+        },
+        {
+            id: 35,
+            "QuestionNo.": "8",
+            question: "Given an array of integers, find the median of the array.",
+            correctAnswer: "Two Heaps"
+        },
+        {
+            id: 36,
+            "QuestionNo.": "8",
+            question: "Given an array of integers, find all subsets of the array.",
+            correctAnswer: "Subsets"
+        }
+    ],
+    [
+        {
+            id: 37,
+            "QuestionNo.": "9",
+            question: "Given a sorted array, find the first and last position of a target element.",
+            correctAnswer: "Modified Binary Search"
+        },
+        {
+            id: 38,
+            "QuestionNo.": "9",
+            question: "Given an array of integers, find the top k frequent elements.",
+            correctAnswer: "Top K Elements"
+        }
+    ],
+    [
+        {
+            id: 39,
+            "QuestionNo.": "10",
+            question: "Given an array of integers, find the maximum sum of a subarray with a fixed window size.",
+            correctAnswer: "Sliding Window"
+        },
+        {
+            id: 40,
+            "QuestionNo.": "10",
+            question: "Given a sorted array, find two numbers that sum up to a specific target.",
+            correctAnswer: "Two Pointers"
+        },
+        {
+            id: 41,
+            "QuestionNo.": "10",
+            question: "Given a linked list, find the middle element.",
+            correctAnswer: "Fast and Slow Pointers"
+        },
+        {
+            id: 42,
+            "QuestionNo.": "10",
+            question: "Given an array of intervals, find the maximum number of non-overlapping intervals.",
+            correctAnswer: "Merge Intervals"
+        },
+        {
+            id: 43,
+            "QuestionNo.": "10",
+            question: "Given an array of integers, sort it using cyclic sort.",
+            correctAnswer: "Cyclic Sort"
+        },
+        {
+            id: 44,
+            "QuestionNo.": "10",
+            question: "Given a linked list, reverse it in place.",
+            correctAnswer: "In-place Reversal of Linked List"
+        },
+        {
+            id: 45,
+            "QuestionNo.": "10",
+            question: "Given a binary tree, return its level order traversal.",
+            correctAnswer: "Tree BFS"
+        },
+        {
+            id: 46,
+            "QuestionNo.": "10",
+            question: "Given a binary tree, return its pre-order traversal.",
+            correctAnswer: "Tree DFS"
+        },
+        {
+            id: 47,
+            "QuestionNo.": "10",
+            question: "Given an array of integers, find the median of the array.",
+            correctAnswer: "Two Heaps"
+        },
+        {
+            id: 48,
+            "QuestionNo.": "10",
+            question: "Given an array of integers, find all subsets of the array.",
+            correctAnswer: "Subsets"
+        },
+        {
+            id: 49,
+            "QuestionNo.": "10",
+            question: "Given a sorted array, find the first and last position of a target element.",
+            correctAnswer: "Modified Binary Search"
+        },
+        {
+            id: 50,
+            "QuestionNo.": "10",
+            question: "Given an array of integers, find the top k frequent elements.",
+            correctAnswer: "Top K Elements"
+        }
+    ],
+    [
+        {
+            id: 51,
+            "QuestionNo.": "11",
+            question: "Given a string, find the length of the longest substring without repeating characters.",
+            correctAnswer: "Sliding Window"
+        },
+        {
+            id: 52,
+            "QuestionNo.": "11",
+            question: "Given an array of integers, find two numbers such that they add up to a specific target.",
+            correctAnswer: "Two Pointers"
+        },
+        {
+            id: 53,
+            "QuestionNo.": "11",
+            question: "Given a linked list, detect if it has a cycle.",
+            correctAnswer: "Fast and Slow Pointers"
+        },
+        {
+            id: 54,
+            "QuestionNo.": "11",
+            question: "Given an array of intervals, merge all overlapping intervals.",
+            correctAnswer: "Merge Intervals"
+        },
+        {
+            id: 55,
+            "QuestionNo.": "11",
+            question: "Given an array of numbers in the range 1 to n, find all the numbers that are missing in the array.",
+            correctAnswer: "Cyclic Sort"
+        },
+        {
+            id: 56,
+            "QuestionNo.": "11",
+            question: "Given a linked list, reverse nodes in k-group.",
+            correctAnswer: "In-place Reversal of Linked List"
+        },
+        {
+            id: 57,
+            "QuestionNo.": "11",
+            question: "Given a binary tree, return its zigzag level order traversal.",
+            correctAnswer: "Tree BFS"
+        },
+        {
+            id: 58,
+            "QuestionNo.": "11",
+            question: "Given a binary tree, return its post-order traversal.",
+            correctAnswer: "Tree DFS"
+        },
+        {
+            id: 59,
+            "QuestionNo.": "11",
+            question: "Given an array of integers, find the k-th largest element.",
+            correctAnswer: "Two Heaps"
+        },
+        {
+            id: 60,
+            "QuestionNo.": "11",
+            question: "Given an array of integers, find all unique subsets.",
+            correctAnswer: "Subsets"
+        },
+        {
+            id: 61,
+            "QuestionNo.": "12",
+            question: "Given a sorted array, find the peak element.",
+            correctAnswer: "Modified Binary Search"
+        },
+        {
+            id: 62,
+            "QuestionNo.": "12",
+            question: "Given an array of integers, find the k most frequent elements.",
+            correctAnswer: "Top K Elements"
+        },
+        {
+            id: 63,
+            "QuestionNo.": "12",
+            question: "Given a string, find the longest palindromic substring.",
+            correctAnswer: "Sliding Window"
+        },
+        {
+            id: 64,
+            "QuestionNo.": "12",
+            question: "Given a sorted array, find the pair of elements that sum up to a given target.",
+            correctAnswer: "Two Pointers"
+        },
+        {
+            id: 65,
+            "QuestionNo.": "12",
+            question: "Given a linked list, find the starting point of the cycle.",
+            correctAnswer: "Fast and Slow Pointers"
+        },
+        {
+            id: 66,
+            "QuestionNo.": "12",
+            question: "Given an array of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.",
+            correctAnswer: "Merge Intervals"
+        },
+        {
+            id: 67,
+            "QuestionNo.": "12",
+            question: "Given an array of integers, sort it using cyclic sort.",
+            correctAnswer: "Cyclic Sort"
+        },
+        {
+            id: 68,
+            "QuestionNo.": "12",
+            question: "Given a linked list, reverse it in place.",
+            correctAnswer: "In-place Reversal of Linked List"
+        },
+        {
+            id: 69,
+            "QuestionNo.": "12",
+            question: "Given a binary tree, return its level order traversal.",
+            correctAnswer: "Tree BFS"
+        },
+        {
+            id: 70,
+            "QuestionNo.": "12",
+            question: "Given a binary tree, return its pre-order traversal.",
+            correctAnswer: "Tree DFS"
+        }
     ]
 ];
 
@@ -340,7 +537,7 @@ const ColumnMatchingQuiz = () => {
     };
 
     return (
-        <div ref={quizContainerRef} className="max-w-6xl mx-auto p-4 bg-gray-900 text-white relative">
+        <div ref={quizContainerRef} className="max-w-[1400px] mx-auto mt-10 p-4 bg-gray-900 text-white relative">
             <div className="bg-gray-800 p-2 mb-4 rounded">
                 <p>Select an option from the left-hand side</p>
             </div>
@@ -352,10 +549,10 @@ const ColumnMatchingQuiz = () => {
                             ref={el => questionRefs.current[index] = el}
                             className={`p-4 mb-4 rounded cursor-pointer ${selectedQuestion === item.id ? 'bg-blue-600' : 'bg-gray-700'} ${matches[item.id] ? 'border-2  border-blue-200' : ''}`}
 
-                            onClick={() => handleQuestionClick(item.id)}    
+                            onClick={() => handleQuestionClick(item.id)}
                         >
-                            <p>{item.question}</p>
-                            <p className="text-blue-300 mt-2">Explanation</p>
+                            <p className='text-[20px]'>{item.question}</p>
+
                         </div>
                     ))}
                 </div>
@@ -364,7 +561,7 @@ const ColumnMatchingQuiz = () => {
                         <div
                             key={answer}
                             ref={el => answerRefs.current[index] = el}
-                            className="p-4 mb-4 bg-gray-700 rounded cursor-pointer hover:bg-gray-600"
+                            className="p-4 mb-4 bg-gray-700 rounded cursor-pointer hover:bg-gray-600 text-[20px]"
                             onClick={() => handleAnswerClick(answer)}
                         >
                             <p>{answer}</p>
